@@ -930,12 +930,6 @@
   margin: 0;
 }
 
-.u-section-7 .u-shape-1 {
-  width: 14px;
-  height: 265px;
-  margin: -265px auto 60px 80px;
-}
-
 @media (max-width: 1199px) {
   .u-section-7 {
     min-height: 1029px;
@@ -966,14 +960,6 @@
 
   .u-section-7 .u-container-layout-3 {
     padding-top: 21px;
-  }
-
-  .u-section-7 .u-shape-1 {
-    width: 17px;
-    height: 350px;
-    margin-top: -363px;
-    margin-bottom: -38px;
-    margin-left: 50px;
   }
 }
 
@@ -1017,13 +1003,6 @@
     padding-top: 0;
     padding-left: 30px;
   }
-
-  .u-section-7 .u-shape-1 {
-    width: 15px;
-    height: 241px;
-    margin-top: -241px;
-    margin-bottom: 60px;
-  }
 }
 
 @media (max-width: 767px) {
@@ -1063,12 +1042,6 @@
     padding-bottom: 3px;
     padding-left: 10px;
   }
-
-  .u-section-7 .u-shape-1 {
-    height: 260px;
-    margin-top: -267px;
-    margin-left: calc(((100% - 540px) / 2) + 14px);
-  }
 }
 
 @media (max-width: 575px) {
@@ -1104,13 +1077,7 @@
     min-height: 400px;
     margin-top: 11px;
     margin-right: calc(((100% - 340px) / 2));
-  }
-
-  .u-section-7 .u-shape-1 {
-    height: 400px;
-    margin-top: -400px;
-    margin-bottom: 47px;
-    margin-left: 50px;
+    margin-bottom: 60px;
   }
 }.u-section-8 {
   background-image: none;
@@ -1246,6 +1213,14 @@
   .u-section-9 .u-list-1 {
     height: auto;
   }
+
+  .u-section-9 .u-text-1 {
+    font-size: 1.125rem;
+  }
+
+  .u-section-9 .u-text-3 {
+    font-size: 1.125rem;
+  }
 }
 
 @media (max-width: 991px) {
@@ -1301,11 +1276,23 @@
   }
 
   .u-section-9 .u-text-1 {
+    font-size: 1rem;
+    margin-top: -109px;
     margin-right: 74px;
   }
 
+  .u-section-9 .u-text-2 {
+    margin-top: 19px;
+  }
+
   .u-section-9 .u-text-3 {
+    font-size: 1rem;
+    margin-top: -109px;
     margin-right: 74px;
+  }
+
+  .u-section-9 .u-text-4 {
+    margin-top: 19px;
   }
 }.u-section-10 {
   background-image: linear-gradient(0deg, rgba(0,0,0,0.35), rgba(0,0,0,0.35)), url("images/travel.jpeg");

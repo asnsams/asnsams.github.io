@@ -1168,6 +1168,7 @@
 .u-section-9 .u-text-1 {
   text-transform: uppercase;
   letter-spacing: 2px;
+  font-size: 1.125rem;
   margin: -110px 417px 0 145px;
 }
 
@@ -1198,6 +1199,7 @@
 .u-section-9 .u-text-3 {
   text-transform: uppercase;
   letter-spacing: 2px;
+  font-size: 1.125rem;
   margin: -110px 417px 0 145px;
 }
 
@@ -1212,14 +1214,6 @@
 @media (max-width: 1199px) {
   .u-section-9 .u-list-1 {
     height: auto;
-  }
-
-  .u-section-9 .u-text-1 {
-    font-size: 1.125rem;
-  }
-
-  .u-section-9 .u-text-3 {
-    font-size: 1.125rem;
   }
 }
 

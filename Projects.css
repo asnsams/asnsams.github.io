@@ -5,7 +5,31 @@
 .u-section-1 .u-text-1 {
   font-weight: 900;
   font-size: 1.5rem;
-  margin: 24px auto 24px 35px;
+  margin: 24px 606px 24px 35px;
+}
+
+@media (max-width: 1199px) {
+  .u-section-1 .u-text-1 {
+    margin-right: 441px;
+  }
+}
+
+@media (max-width: 991px) {
+  .u-section-1 .u-text-1 {
+    margin-right: 221px;
+  }
+}
+
+@media (max-width: 767px) {
+  .u-section-1 .u-text-1 {
+    margin-right: 41px;
+  }
+}
+
+@media (max-width: 575px) {
+  .u-section-1 .u-text-1 {
+    margin-right: 0;
+  }
 }.u-section-2 .u-sheet-1 {
   min-height: 500px;
 }

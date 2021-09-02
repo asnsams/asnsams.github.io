@@ -3,7 +3,7 @@
 }
 
 .u-section-1 .u-sheet-1 {
-  min-height: 1129px;
+  min-height: 1012px;
 }
 
 .u-section-1 .u-text-1 {
@@ -28,9 +28,9 @@
 .u-section-1 .u-text-3 {
   line-height: 1.8;
   font-weight: 700;
-  font-size: 1.11111rem;
+  font-size: 0.888889rem;
   width: 907px;
-  margin: 31px auto 57px;
+  margin: 31px auto 60px;
 }
 
 @media (max-width: 1199px) {
@@ -202,18 +202,8 @@
 }
 
 @media (max-width: 575px) {
-  .u-section-2 .u-layout-cell-1 {
-    min-height: 473px;
-  }
-
   .u-section-2 .u-text-1 {
     font-size: 2.25rem;
-  }
-
-  .u-section-2 .u-shape-1 {
-    width: 60px;
-    height: 60px;
-    margin-top: -60px;
   }
 
   .u-section-2 .u-layout-cell-2 {
@@ -226,12 +216,9 @@
 
   .u-section-2 .u-text-3 {
     font-size: 2.27778rem;
-    width: 188px;
-    margin-top: 65px;
-  }
-
-  .u-section-2 .u-btn-1 {
-    margin-top: 20px;
+    width: auto;
+    margin-right: 67px;
+    margin-left: 26px;
   }
 }.u-section-3 {
   background-image: none;
@@ -269,6 +256,7 @@
 }
 
 .u-section-3 .u-text-3 {
+  font-size: 0.777778rem;
   margin: 25px 7px 0;
 }
 
@@ -283,6 +271,7 @@
 }
 
 .u-section-3 .u-text-5 {
+  font-size: 0.777778rem;
   margin: 20px 7px 0;
 }
 
@@ -291,7 +280,7 @@
   height: 485px;
   background-image: url("images/TenminuteSchoolAymanSadiq.jpg");
   background-position: 50% 50%;
-  margin: -557px auto 60px 28px;
+  margin: -493px auto 8px 28px;
 }
 
 @media (max-width: 1199px) {
@@ -431,29 +420,17 @@
 
 @media (max-width: 575px) {
   .u-section-4 .u-sheet-1 {
-    min-height: 403px;
+    min-height: 754px;
   }
 
   .u-section-4 .u-line-1 {
-    transform-origin: left center 0px;
-    margin-top: 57px;
-    margin-right: initial;
-    margin-left: initial;
-    height: auto;
-    width: auto;
+    width: 340px;
+    margin-top: 36px;
   }
 
   .u-section-4 .u-text-1 {
-    font-size: 1.27778rem;
-    width: auto;
-    margin-top: 19px;
-    margin-left: 0;
-    margin-right: 0;
-  }
-
-  .u-section-4 .u-icon-1 {
-    margin-top: 19px;
-    margin-bottom: 28px;
+    font-size: 2.25rem;
+    width: 340px;
   }
 }.u-section-5 {
   background-image: none;
@@ -698,22 +675,6 @@
 
 @media (max-width: 575px) {
   .u-section-6 .u-layout-cell-1 {
-    min-height: 173px;
-  }
-
-  .u-section-6 .u-icon-1 {
-    margin-top: 23px;
-    margin-left: 17px;
-  }
-
-  .u-section-6 .u-icon-2 {
-    margin-top: -84px;
-    margin-left: auto;
-  }
-
-  .u-section-6 .u-icon-3 {
-    margin-top: -84px;
-    margin-right: 17px;
-    margin-left: auto;
+    min-height: 124px;
   }
 }

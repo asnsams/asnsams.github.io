@@ -358,8 +358,7 @@
   }
 
   .u-section-5 .u-btn-3 {
-    margin-top: 20px;
-    margin-right: 0;
+    margin-right: 91px;
   }
 }
 
@@ -383,6 +382,11 @@
 
   .u-section-5 .u-video-1 {
     width: 360px;
+    margin-right: 0;
+  }
+
+  .u-section-5 .u-btn-3 {
+    margin-top: 20px;
     margin-right: 0;
   }
 }

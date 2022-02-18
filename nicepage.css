@@ -34373,6 +34373,11 @@ a.u-link.u-text-hover-grey-90:hover {
         .u-body
         {
         background-attachment: fixed;
+        sheet-width-xl: 1140;
+        sheet-width-lg: 940;
+        sheet-width-md: 720;
+        sheet-width-sm: 540;
+        sheet-width-xs: 340;
         }
         /** common-rules **/
 

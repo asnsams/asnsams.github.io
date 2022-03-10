@@ -1,21 +1,37 @@
-.u-section-1 {
+ .u-section-1 {
   background-image: none;
 }
 
 .u-section-1 .u-sheet-1 {
-  min-height: 115px;
+  min-height: 248px;
 }
 
 .u-section-1 .u-text-1 {
   animation-duration: 1000ms;
   line-height: 2;
-  text-decoration: underline !important;
   font-weight: 700;
-  margin: 32px 20px;
+  text-decoration: underline !important;
+  margin: 32px 20px 0;
+}
+
+.u-section-1 .u-text-2 {
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-bottom: 60px;
+}
+
+.u-section-1 .u-btn-1 {
+  background-image: none;
+  padding: 0;
 }
 
 @media (max-width: 1199px) {
   .u-section-1 .u-text-1 {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .u-section-1 .u-text-2 {
     margin-left: 0;
     margin-right: 0;
   }
@@ -26,7 +42,7 @@
     margin-left: 20px;
     margin-right: 20px;
   }
-}.u-section-2 {
+} .u-section-2 {
   background-image: none;
 }
 
@@ -192,7 +208,7 @@
     margin-left: 106px;
     padding: 10px 45px 10px 44px;
   }
-}.u-section-3 {
+} .u-section-3 {
   background-image: none;
 }
 
@@ -318,7 +334,14 @@
   }
 
   .u-section-3 .u-text-2 {
-    margin-top: 0;
+    margin-top: 20px;
+    margin-left: 0;
+    margin-right: 436px;
+  }
+
+  .u-section-3 .u-text-3 {
+    margin-right: 436px;
+    margin-left: 0;
   }
 }
 
@@ -348,10 +371,14 @@
   .u-section-3 .u-text-2 {
     font-size: 1.11111rem;
     margin-top: 37px;
+    margin-left: 2px;
+    margin-right: 2px;
   }
 
   .u-section-3 .u-text-3 {
     font-size: 0.777778rem;
+    margin-left: 2px;
+    margin-right: 2px;
   }
 
   .u-section-3 .u-btn-2 {
@@ -369,7 +396,7 @@
     margin-top: 14px;
     margin-right: auto;
   }
-}.u-section-4 {
+} .u-section-4 {
   background-image: none;
 }
 
@@ -496,7 +523,7 @@
   .u-section-4 .u-text-3 {
     font-size: 0.777778rem;
   }
-}.u-section-5 {
+} .u-section-5 {
   background-image: none;
 }
 
@@ -603,7 +630,7 @@
   .u-section-5 .u-text-3 {
     font-size: 0.777778rem;
   }
-}.u-section-6 {
+} .u-section-6 {
   background-image: none;
 }
 
@@ -852,7 +879,7 @@
     width: 912px;
     margin-bottom: 60px;
   }
-}.u-section-7 {
+} .u-section-7 {
   background-image: none;
 }
 
@@ -878,7 +905,7 @@
     margin-left: 20px;
     margin-right: 20px;
   }
-}.u-section-8 {
+} .u-section-8 {
   background-image: none;
 }
 
@@ -1037,7 +1064,7 @@
     padding-left: 20px;
     padding-right: 20px;
   }
-}.u-section-9 {
+} .u-section-9 {
   background-image: none;
 }
 
@@ -1209,7 +1236,7 @@
     margin-top: 13px;
     margin-left: auto;
   }
-}.u-section-10 {
+} .u-section-10 {
   background-image: none;
 }
 

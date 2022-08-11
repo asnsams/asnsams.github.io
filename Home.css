@@ -3,7 +3,7 @@
 }
 
 .u-section-1 .u-sheet-1 {
-  min-height: 1060px;
+  min-height: 1065px;
 }
 
 .u-section-1 .u-text-1 {
@@ -29,7 +29,7 @@
 .u-section-1 .u-text-3 {
   line-height: 1.8;
   font-size: 1rem;
-  margin: 31px 80px 60px;
+  margin: 30px 80px 60px;
 }
 
 @media (max-width: 1199px) {
@@ -85,28 +85,52 @@
 }
 
 .u-section-2 .u-sheet-1 {
-  min-height: 226px;
+  min-height: 318px;
 }
 
 .u-section-2 .u-text-1 {
-  margin-bottom: 0;
-  margin-top: 21px;
+  background-image: none;
+  margin: 21px 980px 0 0;
 }
 
 .u-section-2 .u-text-2 {
   font-size: 0.888889rem;
   margin: 20px 0 60px;
+}
+
+@media (max-width: 1199px) {
+  .u-section-2 .u-text-1 {
+    margin-right: 780px;
+  }
+}
+
+@media (max-width: 991px) {
+  .u-section-2 .u-text-1 {
+    margin-right: 560px;
+  }
+}
+
+@media (max-width: 767px) {
+  .u-section-2 .u-text-1 {
+    margin-right: 380px;
+  }
+}
+
+@media (max-width: 575px) {
+  .u-section-2 .u-text-1 {
+    margin-right: 180px;
+  }
 } .u-section-3 {
   background-image: none;
 }
 
 .u-section-3 .u-sheet-1 {
-  min-height: 651px;
+  min-height: 645px;
 }
 
 .u-section-3 .u-layout-wrap-1 {
   margin-top: 60px;
-  margin-bottom: 36px;
+  margin-bottom: 30px;
 }
 
 .u-section-3 .u-layout-cell-1 {
@@ -134,7 +158,7 @@
 .u-section-3 .u-shape-1 {
   width: 73px;
   height: 73px;
-  margin: 263px 0 -297px auto;
+  margin: 221px 0 -297px 577px;
 }
 
 .u-section-3 .u-layout-cell-2 {
@@ -183,6 +207,10 @@
     font-weight: 400;
   }
 
+  .u-section-3 .u-shape-1 {
+    margin-left: 517px;
+  }
+
   .u-section-3 .u-layout-cell-2 {
     min-height: 458px;
   }
@@ -209,6 +237,10 @@
 
   .u-section-3 .u-text-2 {
     margin-right: 0;
+  }
+
+  .u-section-3 .u-shape-1 {
+    margin-left: 325px;
   }
 
   .u-section-3 .u-layout-cell-2 {
@@ -262,6 +294,10 @@
     width: auto;
   }
 
+  .u-section-3 .u-shape-1 {
+    margin-left: 253px;
+  }
+
   .u-section-3 .u-layout-cell-2 {
     min-height: 312px;
   }
@@ -281,14 +317,14 @@
 }
 
 .u-section-4 .u-sheet-1 {
-  min-height: 721px;
+  min-height: 788px;
 }
 
 .u-section-4 .u-group-1 {
   width: 602px;
-  min-height: 434px;
+  min-height: 704px;
   background-image: none;
-  margin: 61px 0 0 auto;
+  margin: 49px auto 35px;
 }
 
 .u-section-4 .u-container-layout-1 {
@@ -328,15 +364,16 @@
 
 .u-section-4 .u-text-5 {
   font-size: 0.777778rem;
+  margin: 25px 7px 0;
+}
+
+.u-section-4 .u-text-6 {
   margin: 20px 7px 0;
 }
 
-.u-section-4 .u-image-1 {
-  width: 485px;
-  height: 485px;
-  background-image: url("images/TenminuteSchoolAymanSadiq.jpg");
-  background-position: 50% 50%;
-  margin: -493px auto 8px 28px;
+.u-section-4 .u-text-7 {
+  font-size: 0.777778rem;
+  margin: 0 7px;
 }
 
 @media (max-width: 1199px) {
@@ -347,10 +384,7 @@
   .u-section-4 .u-group-1 {
     width: 615px;
     margin-top: 60px;
-  }
-
-  .u-section-4 .u-image-1 {
-    margin-top: 21px;
+    margin-bottom: 60px;
   }
 }
 
@@ -388,6 +422,16 @@
     margin-left: 0;
     margin-right: 0;
   }
+
+  .u-section-4 .u-text-6 {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .u-section-4 .u-text-7 {
+    margin-left: 0;
+    margin-right: 0;
+  }
 }
 
 @media (max-width: 575px) {
@@ -411,14 +455,6 @@
   .u-section-4 .u-line-2 {
     width: 320px;
     margin-left: 0;
-  }
-
-  .u-section-4 .u-image-1 {
-    width: 340px;
-    height: 340px;
-    margin-top: 20px;
-    margin-right: 0;
-    margin-left: auto;
   }
 } .u-section-5 {
   background-image: none;

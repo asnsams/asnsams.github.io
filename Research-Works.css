@@ -7,10 +7,14 @@
 }
 
 .u-section-1 .u-text-1 {
-  animation-duration: 1000ms;
   line-height: 2;
   font-weight: 700;
   text-decoration: underline !important;
+  --animation-custom_in-translate_x: 0px;
+  --animation-custom_in-translate_y: 0px;
+  --animation-custom_in-opacity: 0.35;
+  --animation-custom_in-rotate: 0deg;
+  --animation-custom_in-scale: 1;
   margin: 32px 20px 22px;
 }
 
@@ -18,6 +22,7 @@
   .u-section-1 .u-text-1 {
     margin-left: 0;
     margin-right: 0;
+    animation-duration: 1000ms;
   }
 }
 
@@ -670,6 +675,11 @@
   height: 114px;
   width: 429px;
   background-image: none;
+  --animation-custom_in-translate_x: 0px;
+  --animation-custom_in-translate_y: 0px;
+  --animation-custom_in-opacity: 0;
+  --animation-custom_in-rotate: 0deg;
+  --animation-custom_in-scale: 1;
   margin: 104px 0 0 auto;
 }
 
@@ -899,7 +909,6 @@
 }
 
 .u-section-6 .u-text-1 {
-  animation-duration: 1000ms;
   font-weight: 700;
   margin: 32px 20px;
 }
@@ -908,6 +917,7 @@
   .u-section-6 .u-text-1 {
     margin-left: 0;
     margin-right: 0;
+    animation-duration: 1000ms;
   }
 }
 

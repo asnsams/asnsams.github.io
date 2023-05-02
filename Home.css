@@ -35,21 +35,29 @@
 }
 
 @media (max-width: 1199px) {
+  .u-section-1 .u-sheet-1 {
+    min-height: 605px;
+  }
+
   .u-section-1 .u-image-1 {
     filter: brightness(0.9);
-    margin-top: -32px;
+    margin-top: 147px;
+    margin-left: 39px;
   }
 
   .u-section-1 .u-text-1 {
-    margin-top: -309px;
+    letter-spacing: normal;
+    margin-top: -488px;
     margin-right: 0;
     margin-left: 370px;
-    letter-spacing: normal;
   }
 
   .u-section-1 .u-text-2 {
+    width: auto;
+    margin-top: 37px;
+    margin-right: 0;
+    margin-left: 470px;
     font-size: 1.125rem;
-    margin: 426px 0 0 260px;
   }
 }
 
@@ -59,20 +67,21 @@
   }
 
   .u-section-1 .u-image-1 {
-    margin-top: -69px;
+    margin-top: 98px;
     margin-left: auto;
   }
 
   .u-section-1 .u-text-1 {
     width: 570px;
-    margin-top: -284px;
+    margin-top: -451px;
     margin-left: auto;
     margin-right: auto;
   }
 
   .u-section-1 .u-text-2 {
-    width: auto;
-    margin: 392px 20px 60px;
+    margin-top: 392px;
+    margin-left: 20px;
+    margin-right: 20px;
   }
 }
 
@@ -82,41 +91,43 @@
   }
 
   .u-section-1 .u-image-1 {
-    margin-top: -104px;
+    margin-top: 129px;
   }
 
   .u-section-1 .u-text-1 {
     width: auto;
-    margin-top: -244px;
+    margin-top: -477px;
     margin-left: 0;
     margin-right: 0;
   }
 
   .u-section-1 .u-text-2 {
-    margin-top: 426px;
-    margin-left: 0;
+    margin-top: 37px;
+    margin-left: 180px;
     margin-right: 0;
   }
 }
 
 @media (max-width: 575px) {
   .u-section-1 .u-sheet-1 {
-    min-height: 899px;
+    min-height: 50vw;
   }
 
   .u-section-1 .u-image-1 {
-    width: 340px;
+    margin-top: 115px;
     height: 340px;
-    margin-top: -266px;
+    margin-right: initial;
+    margin-left: initial;
+    width: auto;
   }
 
   .u-section-1 .u-text-1 {
-    margin-top: -36px;
+    margin-top: -417px;
   }
 
   .u-section-1 .u-text-2 {
     margin-top: 380px;
-    margin-bottom: 0;
+    margin-left: 0;
   }
 }
 
@@ -1130,6 +1141,7 @@
   transform: translateX(0px) translateY(0px) scale(1) rotate(0deg);
   box-shadow: 0px 0px 0px rgba(0,0,0,0);
   text-shadow: 0px 0px 0px rgba(0,0,0,0);
+  font-weight: 800;
   margin: 37px 55px 0;
 }
 
@@ -1177,7 +1189,6 @@
   .u-section-8 .u-text-1 {
     margin-left: 0;
     margin-right: 0;
-    font-weight: 800;
   }
 
   .u-section-8 .u-text-2 {

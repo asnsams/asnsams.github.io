@@ -12724,6 +12724,12 @@ section.u-image:not(.u-hover-box),
     flex: 1;
   }
 }
+.u-sidebar .u-form-group:not(:last-child) {
+  margin-bottom: 10px;
+}
+.u-sidebar .u-form-group > label {
+  margin-bottom: 0px;
+}
 .u-sidebar:first-child.u-indent-100 {
   margin-right: 100px;
 }
@@ -20965,11 +20971,15 @@ a.pswp__share--download:hover {
   position: relative;
 }
 .u-list-control {
+  display: flex;
+  position: relative;
+}
+.u-list-control.has-pagination.has-sorting {
   display: grid;
-  grid-template-columns: calc(33.3333%) calc(33.3333%) calc(33.3333%);
   grid-auto-flow: column;
   position: relative;
   align-items: center;
+  grid-template-columns: calc(33.3333%) calc(33.3333%) calc(33.3333%);
 }
 .u-pagination-center.u-sorting-center .u-list-control.has-pagination.has-sorting {
   grid-template-columns: 0;
@@ -24749,7 +24759,7 @@ a.u-button-style.u-border-20 {
 }
 /*begin-variables font-family*/
 .u-body {
-  font-family: Ubuntu,sans-serif;
+  font-family: 'Source Sans Pro',sans-serif;
 }
 h1,
 h2,
@@ -24757,7 +24767,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: Raleway,sans-serif;
+  font-family: 'Titillium Web',sans-serif;
 }
 /*end-variables font-family*/
 /*begin-variables color*/
@@ -24778,10 +24788,10 @@ h6 {
 /*end-variables color*/
 /*begin-variables font*/
 .u-custom-font.u-text-font {
-  font-family: Ubuntu,sans-serif !important;
+  font-family: 'Source Sans Pro',sans-serif !important;
 }
 .u-custom-font.u-heading-font {
-  font-family: Raleway,sans-serif !important;
+  font-family: 'Titillium Web',sans-serif !important;
 }
 /*end-variables font*/
 /*begin-variables colors*/
@@ -41805,7 +41815,7 @@ a.u-link.u-text-hover-grey-90:hover {
         line-height: 1.1;
         margin-top: 20px;
         margin-bottom: 20px;
-        font-weight: 800;
+        font-weight: 600;
         }
         h2.u-subtitle
         {
@@ -41813,7 +41823,7 @@ a.u-link.u-text-hover-grey-90:hover {
         line-height: 1.1;
         margin-top: 20px;
         margin-bottom: 20px;
-        font-weight: 800;
+        font-weight: 600;
         }
         h1:not(.u-title)
         {
@@ -41824,7 +41834,7 @@ a.u-link.u-text-hover-grey-90:hover {
         letter-spacing: 3px;
         list-icon-spacing: 0.3;
         list-icon-size: 0.8;
-        font-weight: 800;
+        font-weight: 600;
         }
         h2:not(.u-subtitle)
         {
@@ -41832,7 +41842,7 @@ a.u-link.u-text-hover-grey-90:hover {
         line-height: 1.1;
         margin-top: 20px;
         margin-bottom: 20px;
-        font-weight: 800;
+        font-weight: 600;
         }
         h3
         {
@@ -41840,7 +41850,7 @@ a.u-link.u-text-hover-grey-90:hover {
         line-height: 1.2;
         margin-top: 20px;
         margin-bottom: 20px;
-        font-weight: 800;
+        font-weight: 600;
         }
         h4
         {
@@ -41848,7 +41858,7 @@ a.u-link.u-text-hover-grey-90:hover {
         line-height: 1.2;
         margin-top: 20px;
         margin-bottom: 20px;
-        font-weight: 800;
+        font-weight: 600;
         }
         h5
         {
@@ -41856,7 +41866,7 @@ a.u-link.u-text-hover-grey-90:hover {
         line-height: 1.2;
         margin-top: 20px;
         margin-bottom: 20px;
-        font-weight: 800;
+        font-weight: 600;
         }
         h6
         {
@@ -41864,7 +41874,7 @@ a.u-link.u-text-hover-grey-90:hover {
         line-height: 1.2;
         margin-top: 20px;
         margin-bottom: 20px;
-        font-weight: 800;
+        font-weight: 600;
         }
         p.u-large-text
         {

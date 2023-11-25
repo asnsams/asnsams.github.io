@@ -59,7 +59,7 @@
 }
 
 .u-section-2 .u-layout-cell-1 {
-  min-height: 245px;
+  min-height: 378px;
 }
 
 .u-section-2 .u-container-layout-1 {
@@ -73,7 +73,7 @@
 }
 
 .u-section-2 .u-layout-cell-2 {
-  min-height: 245px;
+  min-height: 378px;
 }
 
 .u-section-2 .u-container-layout-2 {
@@ -92,7 +92,7 @@
 }
 
 .u-section-2 .u-layout-cell-3 {
-  min-height: 245px;
+  min-height: 378px;
 }
 
 .u-section-2 .u-container-layout-3 {
@@ -113,7 +113,7 @@
 .u-section-2 .u-image-2 {
   background-image: url("images/Bracu.jpg");
   background-position: 50% 50%;
-  min-height: 245px;
+  min-height: 378px;
 }
 
 .u-section-2 .u-container-layout-4 {
@@ -121,7 +121,7 @@
 }
 
 .u-section-2 .u-layout-cell-5 {
-  min-height: 245px;
+  min-height: 378px;
 }
 
 .u-section-2 .u-container-layout-5 {
@@ -140,7 +140,7 @@
 }
 
 .u-section-2 .u-layout-cell-6 {
-  min-height: 100px;
+  min-height: 378px;
 }
 
 .u-section-2 .u-container-layout-6 {
@@ -167,25 +167,6 @@
 .u-section-2 .u-text-10 {
   font-style: italic;
   margin: 25px 10px 0;
-}
-
-.u-section-2 .u-layout-cell-7 {
-  min-height: 441px;
-}
-
-.u-section-2 .u-container-layout-7 {
-  padding: 30px;
-}
-
-.u-section-2 .u-text-11 {
-  font-size: 1.875rem;
-  font-weight: 700;
-  margin: 0 10px;
-}
-
-.u-section-2 .u-text-12 {
-  font-style: italic;
-  margin: 20px 10px 0;
 }
 
 @media (max-width: 1199px) {
@@ -243,6 +224,10 @@
     margin-right: 0;
   }
 
+  .u-section-2 .u-layout-cell-6 {
+    min-height: 100px;
+  }
+
   .u-section-2 .u-text-7 {
     margin-left: 0;
     margin-right: 0;
@@ -259,20 +244,6 @@
   }
 
   .u-section-2 .u-text-10 {
-    margin-left: 0;
-    margin-right: 0;
-  }
-
-  .u-section-2 .u-layout-cell-7 {
-    min-height: 100px;
-  }
-
-  .u-section-2 .u-text-11 {
-    margin-left: 0;
-    margin-right: 0;
-  }
-
-  .u-section-2 .u-text-12 {
     margin-left: 0;
     margin-right: 0;
   }
@@ -323,11 +294,6 @@
   }
 
   .u-section-2 .u-container-layout-6 {
-    padding-left: 10px;
-    padding-right: 10px;
-  }
-
-  .u-section-2 .u-container-layout-7 {
     padding-left: 10px;
     padding-right: 10px;
   }
@@ -389,10 +355,6 @@
   }
 
   .u-section-2 .u-text-9 {
-    font-size: 1.5rem;
-  }
-
-  .u-section-2 .u-text-11 {
     font-size: 1.5rem;
   }
 } .u-section-3 {

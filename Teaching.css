@@ -25,6 +25,7 @@
   --animation-custom_in-rotate: 0deg;
   --animation-custom_in-scale: 1;
   font-weight: 700;
+  text-shadow: 2px 2px 8px rgba(0,0,0,0.4);
   margin: 59px auto 0;
 }
 
@@ -132,6 +133,7 @@
   --animation-custom_in-rotate: 0deg;
   --animation-custom_in-scale: 1;
   font-weight: 700;
+  text-shadow: 2px 2px 8px rgba(0,0,0,0.4);
   margin: 59px auto 0;
 }
 
@@ -247,6 +249,7 @@
   --animation-custom_in-rotate: 0deg;
   --animation-custom_in-scale: 1;
   font-weight: 700;
+  text-shadow: 2px 2px 8px rgba(0,0,0,0.4);
   margin: 59px 0 0;
 }
 

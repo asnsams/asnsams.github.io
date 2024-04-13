@@ -399,6 +399,18 @@
   .u-section-1 .u-layout-cell-8 {
     min-height: 574px;
   }
+
+  .u-section-1 .u-image-4 {
+    width: 120px;
+    height: 120px;
+    margin-top: 70px;
+  }
 }.u-section-2 .u-sheet-1 {
   min-height: 400px;
+}
+
+@media (max-width: 575px) {
+  .u-section-2 .u-sheet-1 {
+    min-height: 543px;
+  }
 }

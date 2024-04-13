@@ -16,14 +16,10 @@
 }
 
 .u-section-1 .u-text-1 {
-  text-transform: uppercase;
-  font-weight: 300;
-  letter-spacing: 4px;
-  font-size: 3rem;
   width: 554px;
   transition-duration: 3s;
   box-shadow: 0px 0px 0px rgba(0,0,0,0);
-  text-shadow: -2px 0 0 rgba(0,0,0,0);
+  text-shadow: -32px 0 0 rgba(0,0,0,0);
   transform: translateX(0px) translateY(0px) scale(1) rotate(0deg);
   margin: 60px auto 0;
 }
@@ -38,6 +34,13 @@
 @media (max-width: 1199px) {
   .u-section-1 .u-image-1 {
     background-position: 50% 50%;
+  }
+
+  .u-section-1 .u-text-1 {
+    text-transform: uppercase;
+    font-weight: 300;
+    letter-spacing: 4px;
+    font-size: 3rem;
   }
 
   .u-section-1 .u-text-2 {
@@ -103,11 +106,11 @@
   border-color: transparent !important;
 }
 
-.u-section-1 .u-container-layout:hover .u-text-1 {
+.u-container-layout:hover > .u-section-1 .u-text-1 {
   transform: rotate(0deg) scale(1) translateX(0px) translateY(0px) !important;
 }
 
-.u-container-layout.hover .u-section-1 .u-text-1 {
+.u-container-layout.hover > .u-section-1 .u-text-1 {
   transform: rotate(0deg) scale(1) translateX(0px) translateY(0px) !important;
 }
 
@@ -123,7 +126,7 @@
   border-left-width: 8px !important;
   border-right-width: 8px !important;
   border-bottom-width: 8px !important;
-  border-color: #9ca5ad !important;
+  border-color: #b9bfc5 !important;
   transform: rotate(359deg) !important;
   box-shadow: 5px 5px 20px 0 rgba(0,0,0,0.4) !important;
 }
@@ -140,7 +143,7 @@
   border-left-width: 8px !important;
   border-right-width: 8px !important;
   border-bottom-width: 8px !important;
-  border-color: #9ca5ad !important;
+  border-color: #b9bfc5 !important;
   transform: rotate(359deg) !important;
   box-shadow: 5px 5px 20px 0 rgba(0,0,0,0.4) !important;
 }
@@ -151,11 +154,11 @@
   border-color: transparent !important;
 }
 
-.u-section-1 .u-container-layout:hover .u-image-1 {
+.u-container-layout:hover > .u-section-1 .u-image-1 {
   transform: rotate(0deg) scale(1) translateX(0px) translateY(0px) !important;
 }
 
-.u-container-layout.hover .u-section-1 .u-image-1 {
+.u-container-layout.hover > .u-section-1 .u-image-1 {
   transform: rotate(0deg) scale(1) translateX(0px) translateY(0px) !important;
 }
 
@@ -173,11 +176,11 @@
   transform: scale(1.2) !important;
 }
 
-.u-section-1 .u-container-layout:hover .u-text-2 {
+.u-container-layout:hover > .u-section-1 .u-text-2 {
   transform: rotate(0deg) scale(1) translateX(0px) translateY(0px) !important;
 }
 
-.u-container-layout.hover .u-section-1 .u-text-2 {
+.u-container-layout.hover > .u-section-1 .u-text-2 {
   transform: rotate(0deg) scale(1) translateX(0px) translateY(0px) !important;
 } .u-section-2 {
   background-image: none;
@@ -339,11 +342,11 @@
   transform: scale(1) translateY(px) !important;
 }
 
-.u-section-2 .u-container-layout:hover .u-btn-3 {
+.u-container-layout:hover > .u-section-2 .u-btn-3 {
   transform: rotate(0deg) scale(1) translateX(0px) translateY(0px) !important;
 }
 
-.u-container-layout.hover .u-section-2 .u-btn-3 {
+.u-container-layout.hover > .u-section-2 .u-btn-3 {
   transform: rotate(0deg) scale(1) translateX(0px) translateY(0px) !important;
 } .u-section-3 {
   background-image: none;
@@ -484,11 +487,11 @@
   transform: scale(1) translateY(px) !important;
 }
 
-.u-section-3 .u-container-layout:hover .u-btn-1 {
+.u-container-layout:hover > .u-section-3 .u-btn-1 {
   transform: rotate(0deg) scale(1) translateX(0px) translateY(0px) !important;
 }
 
-.u-container-layout.hover .u-section-3 .u-btn-1 {
+.u-container-layout.hover > .u-section-3 .u-btn-1 {
   transform: rotate(0deg) scale(1) translateX(0px) translateY(0px) !important;
 } .u-section-4 {
   background-image: none;

@@ -18,19 +18,22 @@
 
 .u-section-1 .u-video-1 {
   height: 482px;
-  margin-top: 23px;
-  margin-bottom: 59px;
+  margin: 50px 0 32px;
 }
 
 @media (max-width: 1199px) {
   .u-section-1 .u-video-1 {
     filter: brightness(0.35);
+    margin-right: initial;
+    margin-left: initial;
   }
 }
 
 @media (max-width: 991px) {
   .u-section-1 .u-video-1 {
     height: 362px;
+    margin-right: initial;
+    margin-left: initial;
   }
 }
 
@@ -62,6 +65,8 @@
     height: 229px;
     margin-top: 34px;
     margin-bottom: 51px;
+    margin-right: initial;
+    margin-left: initial;
   }
 } .u-section-2 {
   background-image: none;
@@ -183,6 +188,7 @@
 
 .u-section-3 .u-video-1 {
   min-height: 373px;
+  background-image: none;
 }
 
 .u-section-3 .u-container-layout-2 {

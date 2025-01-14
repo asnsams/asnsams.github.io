@@ -405,12 +405,4 @@
     height: 120px;
     margin-top: 70px;
   }
-}.u-section-2 .u-sheet-1 {
-  min-height: 400px;
-}
-
-@media (max-width: 575px) {
-  .u-section-2 .u-sheet-1 {
-    min-height: 399px;
-  }
 }

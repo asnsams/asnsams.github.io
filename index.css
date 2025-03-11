@@ -39,6 +39,7 @@
   transition-duration: 0.75s;
   font-size: 0.875rem;
   transform: translateX(0px) translateY(0px) scale(1) rotate(0deg);
+  letter-spacing: 1px;
   margin: 50px 5px 0 0;
 }
 
@@ -232,7 +233,7 @@
 }
 
 .u-section-2 .u-layout-cell-1 {
-  min-height: 394px;
+  min-height: 405px;
   --effect-scale: 1.5;
 }
 
@@ -243,6 +244,7 @@
 .u-section-2 .u-text-1 {
   font-size: 1rem;
   font-weight: 900;
+  letter-spacing: 1px;
   margin: 0;
 }
 
@@ -255,7 +257,9 @@
 .u-section-2 .u-text-2 {
   font-weight: 600;
   font-size: 1rem;
-  margin: 8px 216px 0 173px;
+  letter-spacing: 1px;
+  width: 726px;
+  margin: 8px auto 0;
 }
 
 .u-section-2 .u-group-elements-1 {
@@ -309,12 +313,7 @@
   .u-section-2 .u-layout-cell-1 {
     background-position: 50% 50%;
     transition-duration: 0.75s;
-    min-height: 325px;
-  }
-
-  .u-section-2 .u-text-2 {
-    margin-right: 116px;
-    margin-left: 73px;
+    min-height: 334px;
   }
 }
 
@@ -329,8 +328,7 @@
   }
 
   .u-section-2 .u-text-2 {
-    margin-right: 29px;
-    margin-left: 0;
+    width: 660px;
   }
 }
 
@@ -345,7 +343,7 @@
   }
 
   .u-section-2 .u-text-2 {
-    margin-right: 0;
+    width: 520px;
   }
 }
 
@@ -480,6 +478,7 @@
 .u-section-3 .u-text-2 {
   line-height: 1.8;
   font-size: 0.875rem;
+  letter-spacing: 1px;
   margin: 20px 100px 41px;
 }
 
@@ -542,6 +541,7 @@
 
 .u-section-4 .u-text-2 {
   font-weight: 700;
+  letter-spacing: 1px;
   margin: 0;
 }
 
@@ -565,6 +565,7 @@
 
 .u-section-4 .u-text-3 {
   font-weight: 700;
+  letter-spacing: 1px;
   margin: 0 16px 0 4px;
 }
 
@@ -588,6 +589,7 @@
 
 .u-section-4 .u-text-4 {
   font-weight: 700;
+  letter-spacing: 1px;
   margin: 0 20px 0 0;
 }
 

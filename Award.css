@@ -58,6 +58,7 @@
 }
 
 .u-section-2 .u-text-2 {
+  letter-spacing: 1px;
   margin: 20px 0 27px 19px;
 }
 
@@ -136,6 +137,7 @@
 }
 
 .u-section-3 .u-text-3 {
+  letter-spacing: 1px;
   margin: 21px 23px 0;
 }
 
@@ -155,6 +157,7 @@
 }
 
 .u-section-3 .u-text-5 {
+  letter-spacing: 1px;
   margin: 20px 0 0;
 }
 
@@ -164,11 +167,13 @@
 }
 
 .u-section-3 .u-text-7 {
+  letter-spacing: 1px;
   margin: 20px 70px 0;
 }
 
 .u-section-3 .u-text-8 {
   font-weight: 700;
+  letter-spacing: 1px;
   margin: 20px 0 60px 19px;
 }
 

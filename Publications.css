@@ -82,11 +82,11 @@
 }
 
 .u-section-2 .u-sheet-1 {
-  min-height: 168px;
+  min-height: 496px;
 }
 
 .u-section-2 .u-text-1 {
-  margin: 33px auto 0 0;
+  margin: 30px auto 0 0;
 }
 
 .u-section-2 .u-icon-1 {
@@ -97,7 +97,7 @@
 .u-section-2 .u-text-2 {
   font-weight: 700;
   letter-spacing: 1px;
-  margin: 20px auto 33px 0;
+  margin: 23px auto 33px 0;
 }.u-section-3 .u-sheet-1 {
   min-height: 31px;
 }
@@ -653,9 +653,9 @@
 }
 
 .u-section-9 .u-text-2 {
-  width: 830px;
   letter-spacing: 1px;
-  margin: 20px auto 60px;
+  width: 912px;
+  margin: 18px auto 60px;
 }
 
 .u-section-9 .u-btn-1 {
@@ -685,6 +685,7 @@
 
 .u-section-9 .u-btn-6 {
   background-image: none;
+  margin-bottom: 1px;
   padding: 0;
 }
 

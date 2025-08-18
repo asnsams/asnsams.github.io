@@ -461,7 +461,7 @@
 .u-section-2 .u-btn-2 > .u-container-layout:before {
   transition-property: fill, color, background-color, stroke-width, border-style, border-width, border-top-width, border-left-width, border-right-width, border-bottom-width, custom-border, borders, box-shadow, text-shadow, opacity, border-radius, stroke, border-color, font-size, font-style, font-weight, text-decoration, letter-spacing, transform, background-image, image-zoom, background-size, background-position;
 }.u-section-3 .u-sheet-1 {
-  min-height: 427px;
+  min-height: 543px;
 }
 
 .u-section-3 .u-text-1 {
@@ -482,17 +482,17 @@
   margin: 20px 0 41px;
 }
 
-.u-section-3 .u-icon-3 {
+.u-section-3 .u-icon-5 {
   font-weight: 700;
 }
 
-.u-section-3 .u-icon-4 {
+.u-section-3 .u-icon-6 {
   font-weight: 700;
   width: 14px;
   height: 16px;
 }
 
-.u-section-3 .u-icon-5 {
+.u-section-3 .u-icon-7 {
   font-weight: 700;
   width: 14px;
   height: 16px;

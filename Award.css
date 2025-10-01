@@ -59,7 +59,7 @@
 
 .u-section-2 .u-text-2 {
   letter-spacing: 1px;
-  margin: 20px 10px 27px;
+  margin: 20px 0 27px 19px;
 }
 
 .u-section-2 .u-btn-1 {
@@ -84,7 +84,6 @@
   }
 
   .u-section-2 .u-text-2 {
-    margin-right: 0;
     margin-left: 0;
   }
 }
@@ -113,12 +112,12 @@
 }
 
 .u-section-3 .u-sheet-1 {
-  min-height: 797px;
+  min-height: 1176px;
 }
 
 .u-section-3 .u-text-1 {
   margin-bottom: 0;
-  margin-top: 60px;
+  margin-top: 70px;
   font-size: 4.5rem;
 }
 
@@ -134,22 +133,12 @@
 
 .u-section-3 .u-text-2 {
   text-shadow: 2px 2px 8px rgba(0,0,0,0.4);
-  margin: 20px 397px 0 0;
+  margin: 20px auto 0 0;
 }
 
 .u-section-3 .u-text-3 {
   letter-spacing: 1px;
-  margin: 21px 0 0;
-}
-
-.u-section-3 .u-text-4 {
-  text-shadow: 2px 2px 8px rgba(0,0,0,0.4);
-  margin: 45px auto 0 0;
-}
-
-.u-section-3 .u-text-5 {
-  letter-spacing: 1px;
-  margin: 19px 23px 60px;
+  margin: 21px 23px 0;
 }
 
 .u-section-3 .u-btn-1 {
@@ -162,6 +151,32 @@
   padding: 0;
 }
 
+.u-section-3 .u-text-4 {
+  text-shadow: 2px 2px 8px rgba(0,0,0,0.4);
+  margin: 19px 397px 0 0;
+}
+
+.u-section-3 .u-text-5 {
+  letter-spacing: 1px;
+  margin: 20px 0 0;
+}
+
+.u-section-3 .u-text-6 {
+  text-shadow: 2px 2px 8px rgba(0,0,0,0.4);
+  margin: 57px 0 0;
+}
+
+.u-section-3 .u-text-7 {
+  letter-spacing: 1px;
+  margin: 20px 70px 0;
+}
+
+.u-section-3 .u-text-8 {
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin: 20px 0 60px 19px;
+}
+
 @media (max-width: 1199px) {
   .u-section-3 .u-text-1 {
     font-size: 3.75rem;
@@ -172,12 +187,21 @@
     margin-left: initial;
   }
 
-  .u-section-3 .u-text-2 {
+  .u-section-3 .u-text-3 {
+    margin-right: 0;
+    margin-left: 0;
+  }
+
+  .u-section-3 .u-text-4 {
     margin-right: 197px;
   }
 
-  .u-section-3 .u-text-5 {
+  .u-section-3 .u-text-7 {
+    margin-left: 0;
     margin-right: 0;
+  }
+
+  .u-section-3 .u-text-8 {
     margin-left: 0;
   }
 }
@@ -187,7 +211,7 @@
     font-size: 3rem;
   }
 
-  .u-section-3 .u-text-2 {
+  .u-section-3 .u-text-4 {
     width: auto;
     margin-top: 30px;
     margin-right: 301px;
@@ -197,10 +221,11 @@
 
 @media (max-width: 767px) {
   .u-section-3 .u-text-1 {
+    margin-top: 60px;
     font-size: 2.25rem;
   }
 
-  .u-section-3 .u-text-2 {
+  .u-section-3 .u-text-4 {
     margin-top: 34px;
     margin-right: 270px;
     margin-bottom: 0;
@@ -214,7 +239,7 @@
     margin-left: 0;
   }
 
-  .u-section-3 .u-text-2 {
+  .u-section-3 .u-text-4 {
     margin-top: 156px;
     margin-right: 70px;
   }

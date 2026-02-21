@@ -1,0 +1,1514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ataher Sams — PhD Researcher</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f6f4ef;
+    --sidebar-bg: #1a1f2e;
+    --sidebar-w: 240px;
+    --surface: #ffffff;
+    --surface2: #f0ede6;
+    --accent: #2d7dd2;
+    --accent-light: #e8f1fb;
+    --accent2: #e07b39;
+    --accent3: #4caf89;
+    --text: #1c1e26;
+    --muted: #4a4755;
+    --border: #e4e0d8;
+    --shadow: rgba(28,30,38,0.06);
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-weight: 400;
+    display: flex;
+    min-height: 100vh;
+    cursor: none;
+  }
+
+  /* CURSOR */
+  .cur-dot {
+    width: 8px; height: 8px;
+    background: var(--accent);
+    border-radius: 50%;
+    position: fixed; top: 0; left: 0;
+    pointer-events: none; z-index: 9999;
+    transform: translate(-50%,-50%);
+    transition: transform 0.08s;
+    mix-blend-mode: multiply;
+  }
+  .cur-ring {
+    width: 32px; height: 32px;
+    border: 1.5px solid rgba(45,125,210,0.45);
+    border-radius: 50%;
+    position: fixed; top: 0; left: 0;
+    pointer-events: none; z-index: 9998;
+    transform: translate(-50%,-50%);
+    transition: all 0.14s ease;
+  }
+
+  /* SIDEBAR */
+  #sidebar {
+    width: var(--sidebar-w);
+    min-height: 100vh;
+    background: var(--sidebar-bg);
+    position: fixed;
+    left: 0; top: 0; bottom: 0;
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    padding: 36px 0 24px;
+    transition: transform 0.3s ease;
+  }
+  .sidebar-profile {
+    padding: 0 24px 28px;
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+  }
+  .sidebar-avatar {
+    width: 70px; height: 70px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid rgba(255,255,255,0.15);
+    display: block;
+    margin-bottom: 14px;
+    filter: grayscale(15%);
+  }
+  .sidebar-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 4px;
+    line-height: 1.2;
+  }
+  .sidebar-role {
+    font-size: 0.69rem;
+    color: rgba(255,255,255,0.4);
+    line-height: 1.5;
+  }
+  nav { flex: 1; padding: 16px 0; }
+  .nav-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.58rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.22);
+    padding: 14px 24px 5px;
+  }
+  nav a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 9px 24px;
+    font-size: 0.82rem;
+    color: rgba(255,255,255,0.52);
+    text-decoration: none;
+    transition: all 0.2s;
+    cursor: pointer;
+    position: relative;
+    letter-spacing: 0.01em;
+    user-select: none;
+  }
+  nav a .ni { font-size: 0.88rem; }
+  nav a:hover { color: rgba(255,255,255,0.88); background: rgba(255,255,255,0.04); }
+  nav a.active {
+    color: #fff;
+    background: rgba(45,125,210,0.14);
+  }
+  nav a.active::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 3px;
+    background: var(--accent);
+    border-radius: 0 2px 2px 0;
+  }
+  .sidebar-foot {
+    padding: 16px 24px 0;
+    border-top: 1px solid rgba(255,255,255,0.07);
+  }
+  .sb-links { display: flex; gap: 10px; margin-bottom: 10px; }
+  .sb-links a {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.63rem;
+    color: rgba(255,255,255,0.33);
+    text-decoration: none;
+    transition: color 0.2s;
+    letter-spacing: 0.04em;
+  }
+  .sb-links a:hover { color: var(--accent); }
+  .sb-email {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.6rem;
+    color: rgba(255,255,255,0.22);
+  }
+
+  /* MAIN */
+  main { margin-left: var(--sidebar-w); flex: 1; min-height: 100vh; }
+
+  /* PAGES */
+  .page { display: none; min-height: 100vh; animation: pageIn 0.38s ease; }
+  .page.active { display: block; }
+  @keyframes pageIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* PAGE HERO — no ghost text watermark */
+  .page-hero {
+    padding: 56px 56px 40px;
+    border-bottom: 1px solid var(--border);
+    background: var(--surface);
+    position: relative;
+    overflow: hidden;
+  }
+  .pg-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.67rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 12px;
+  }
+  .page-hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    color: var(--text);
+  }
+  .page-hero h1 em { color: var(--accent); font-style: italic; }
+
+  /* CONTENT */
+  .content { padding: 44px 56px; }
+
+  /* HOME */
+  #home .page-hero {
+    padding: 52px 56px 40px;
+  }
+  .home-tags { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 18px; }
+  .htag {
+    background: var(--accent-light);
+    color: var(--accent);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.63rem;
+    letter-spacing: 0.05em;
+    padding: 4px 9px;
+    border-radius: 3px;
+  }
+  .htag.or { background: #fdf2ea; color: var(--accent2); }
+  .htag.gr { background: #eaf5f0; color: var(--accent3); }
+
+  .home-grid {
+    display: grid;
+    grid-template-columns: 1fr 320px;
+    gap: 36px;
+    padding: 44px 56px;
+  }
+  .home-bio {
+    font-size: 0.9rem;
+    line-height: 1.85;
+    color: #333;
+    margin-top: 4px;
+    font-weight: 400;
+  }
+  .home-bio + .home-bio { margin-top: 10px; }
+  .home-bio a { color: var(--accent); text-decoration: none; }
+  .home-bio a:hover { text-decoration: underline; }
+  .home-bio strong { font-weight: 600; color: var(--text); }
+
+  /* News */
+  .news-head {
+    display: flex; align-items: center; gap: 10px;
+    margin-bottom: 18px; margin-top: 28px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--border);
+  }
+  .news-head h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem; font-weight: 600;
+  }
+  .ndot {
+    width: 7px; height: 7px;
+    background: var(--accent3);
+    border-radius: 50%;
+    animation: blink 2s ease infinite;
+  }
+  @keyframes blink {
+    0%,100% { opacity:1; transform:scale(1); }
+    50% { opacity:0.4; transform:scale(0.7); }
+  }
+  .news-list { max-height: 460px; overflow-y: auto; padding-right: 6px; }
+  .news-list::-webkit-scrollbar { width: 3px; }
+  .news-list::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+
+  /* Symmetric news rows: date col + badge col + text col */
+  .ni-row {
+    display: grid;
+    grid-template-columns: 96px auto 1fr;
+    gap: 10px;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--border);
+    align-items: start;
+  }
+  .ni-row:last-child { border-bottom: none; }
+  .ni-date {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.63rem;
+    color: var(--muted);
+    white-space: nowrap;
+    padding-top: 3px;
+    line-height: 1.4;
+  }
+  .ncap {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.59rem;
+    padding: 3px 6px;
+    border-radius: 3px;
+    white-space: nowrap;
+    margin-top: 1px;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+  }
+  .nc-c { background: #e8f1fb; color: #2d7dd2; }
+  .nc-p { background: #fdf2ea; color: #e07b39; }
+  .nc-a { background: #eaf5f0; color: #4caf89; }
+  .nc-ph { background: #f5eafb; color: #9b59b6; }
+  .nc-t { background: #fef9e8; color: #c49a2a; }
+  .nc-s { background: #fdeaea; color: #c0392b; }
+  .ni-text { font-size: 0.82rem; line-height: 1.6; color: #333; }
+
+  /* Sidebar cards */
+  .icard {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 22px;
+    margin-bottom: 16px;
+  }
+  .icard h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 0.95rem; font-weight: 600;
+    margin-bottom: 14px;
+  }
+  .irow {
+    display: flex; gap: 9px;
+    padding: 7px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 0.76rem;
+    align-items: start;
+  }
+  .irow:last-child { border-bottom: none; }
+  .irow .ic { opacity: 0.45; flex-shrink: 0; }
+  .irow .iv { color: #333; line-height: 1.4; }
+  .irow .iv strong { color: var(--text); display: block; font-weight: 600; font-size: 0.8rem; }
+  .qlink a {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 8px 10px;
+    border-radius: 6px;
+    font-size: 0.77rem;
+    color: var(--text);
+    text-decoration: none;
+    transition: all 0.15s;
+    margin-bottom: 3px;
+    border: 1px solid transparent;
+  }
+  .qlink a:hover { background: var(--accent-light); border-color: rgba(45,125,210,0.18); color: var(--accent); }
+  .qlink a span { font-size: 0.63rem; opacity: 0.38; }
+  .dark-card {
+    background: linear-gradient(135deg, #1a1f2e 0%, #2d3a52 100%);
+    border: none;
+    margin-bottom: 0;
+  }
+  .dark-card h4 { color: #fff; }
+  .dark-card p { font-size: 0.76rem; color: rgba(255,255,255,0.5); line-height: 1.7; }
+
+  /* RESEARCH */
+  .proj-block {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    margin-bottom: 28px;
+    overflow: hidden;
+    transition: box-shadow 0.25s;
+  }
+  .proj-block:hover { box-shadow: 0 8px 32px var(--shadow); }
+  .proj-head {
+    padding: 26px 30px 18px;
+    border-bottom: 1px solid var(--border);
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 16px;
+    align-items: start;
+  }
+  .pnum {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.62rem;
+    background: var(--accent);
+    color: #fff;
+    padding: 4px 8px;
+    border-radius: 3px;
+    letter-spacing: 0.08em;
+    white-space: nowrap;
+  }
+  .proj-head h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem; font-weight: 600;
+    margin-bottom: 5px; line-height: 1.3;
+  }
+  .proj-collab {
+    font-size: 0.76rem;
+    color: var(--accent);
+    font-style: italic;
+    line-height: 1.5;
+    font-weight: 400;
+  }
+  .proj-body { padding: 22px 30px; }
+  .proj-desc {
+    font-size: 0.86rem;
+    line-height: 1.82;
+    color: #333;
+    margin-bottom: 20px;
+    font-weight: 400;
+  }
+  .papers-lbl {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 10px;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .papers-lbl::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+  .prow {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 10px;
+    align-items: start;
+    padding: 9px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .prow:last-child { border-bottom: none; }
+  .pidx { font-family: 'IBM Plex Mono', monospace; font-size: 0.67rem; color: var(--muted); margin-top: 2px; }
+  .ptitle { font-size: 0.84rem; line-height: 1.5; color: var(--text); font-weight: 500; }
+  .pvenue { font-size: 0.75rem; color: #4a4755; font-style: italic; margin-top: 2px; font-weight: 400; }
+  .pbadge {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.58rem;
+    padding: 2px 7px;
+    border-radius: 3px;
+    white-space: nowrap;
+  }
+  .pb-ok { background: #eaf5f0; color: #4caf89; }
+  .pb-sub { background: #fdf2ea; color: var(--accent2); }
+  .pb-wip { background: #f5f5f5; color: #aaa; }
+  .pdf-btn {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.58rem;
+    color: var(--accent);
+    text-decoration: none;
+    border: 1px solid var(--accent);
+    padding: 2px 6px;
+    border-radius: 3px;
+    transition: all 0.15s;
+    display: inline-block;
+    margin-top: 3px;
+  }
+  .pdf-btn:hover { background: var(--accent); color: #fff; }
+  .arxiv-btn {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.58rem;
+    color: #b31b1b;
+    text-decoration: none;
+    border: 1px solid #b31b1b;
+    padding: 2px 6px;
+    border-radius: 3px;
+    transition: all 0.15s;
+    display: inline-block;
+    margin-top: 3px;
+  }
+  .arxiv-btn:hover { background: #b31b1b; color: #fff; }
+  .data-btn {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.58rem;
+    color: var(--accent3);
+    text-decoration: none;
+    border: 1px solid var(--accent3);
+    padding: 2px 6px;
+    border-radius: 3px;
+    transition: all 0.15s;
+    display: inline-block;
+    margin-top: 3px;
+  }
+  .data-btn:hover { background: var(--accent3); color: #fff; }
+
+  /* EDUCATION */
+  .edu-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 28px 30px;
+    margin-bottom: 20px;
+    display: grid;
+    grid-template-columns: 60px 1fr;
+    gap: 22px;
+    align-items: start;
+    transition: box-shadow 0.2s;
+  }
+  .edu-card:hover { box-shadow: 0 6px 24px var(--shadow); }
+  .edu-ico {
+    width: 52px; height: 52px;
+    border-radius: 8px;
+    background: var(--surface2);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.3rem;
+    border: 1px solid var(--border);
+    flex-shrink: 0;
+    overflow: hidden;
+  }
+  .edu-uni {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.12rem; font-weight: 600;
+    margin-bottom: 3px;
+  }
+  .edu-deg { font-size: 0.86rem; font-weight: 500; color: var(--accent); margin-bottom: 3px; }
+  .edu-dept { font-size: 0.78rem; color: var(--muted); margin-bottom: 10px; }
+  .edu-period {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.66rem;
+    color: var(--muted);
+    background: var(--surface2);
+    padding: 3px 8px;
+    border-radius: 3px;
+    display: inline-block;
+    margin-bottom: 10px;
+  }
+  .edu-note { font-size: 0.82rem; color: #3a3a3a; line-height: 1.7; font-weight: 400; }
+
+  /* COURSES */
+  .clevel-head {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem; font-weight: 700;
+    margin-bottom: 24px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--border);
+    display: flex; align-items: center; gap: 12px;
+  }
+  .clevel-badge {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.62rem;
+    padding: 3px 9px;
+    border-radius: 3px;
+    background: var(--accent-light);
+    color: var(--accent);
+    font-weight: 500;
+    letter-spacing: 0.06em;
+  }
+  .course-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 14px;
+    margin-bottom: 44px;
+  }
+  .ccard {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 9px;
+    padding: 16px 18px;
+    transition: all 0.2s;
+    position: relative;
+    overflow: hidden;
+  }
+  .ccard::before {
+    content: '';
+    position: absolute; left: 0; top: 0; bottom: 0;
+    width: 3px; background: var(--accent);
+    opacity: 0; transition: opacity 0.2s;
+  }
+  .ccard:hover { box-shadow: 0 4px 16px var(--shadow); transform: translateY(-1px); }
+  .ccard:hover::before { opacity: 1; }
+  .cc-code {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.63rem;
+    color: var(--muted);
+    margin-bottom: 6px;
+    letter-spacing: 0.03em;
+  }
+  .cc-name {
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--text);
+    line-height: 1.35;
+    margin-bottom: 8px;
+  }
+  .cc-proj { font-size: 0.73rem; color: var(--muted); line-height: 1.4; font-style: italic; }
+  .cc-tools { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 9px; }
+  .tchip {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.57rem;
+    padding: 2px 6px;
+    background: var(--surface2);
+    border-radius: 3px;
+    color: var(--muted);
+    border: 1px solid var(--border);
+  }
+  .proj-link-btns { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 10px; }
+  .proj-link-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.6rem;
+    color: var(--accent);
+    text-decoration: none;
+    border: 1px solid rgba(45,125,210,0.35);
+    padding: 3px 8px;
+    border-radius: 3px;
+    transition: all 0.15s;
+    background: var(--accent-light);
+    letter-spacing: 0.04em;
+  }
+  .proj-link-btn:hover { background: var(--accent); color: #fff; border-color: var(--accent); }
+  .proj-link-btn.yt {
+    color: #c0392b;
+    border-color: rgba(192,57,43,0.35);
+    background: #fdeaea;
+  }
+  .proj-link-btn.yt:hover { background: #c0392b; color: #fff; border-color: #c0392b; }
+
+  /* TEACHING */
+  .srv-sec { margin-bottom: 44px; }
+  .srv-sec h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem; font-weight: 600;
+    margin-bottom: 18px;
+    padding-bottom: 9px;
+    border-bottom: 1px solid var(--border);
+  }
+  .teach-row {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 14px;
+    align-items: start;
+    padding: 13px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .teach-row:last-child { border-bottom: none; }
+  .teach-row.featured {
+    background: linear-gradient(90deg, var(--accent-light) 0%, transparent 100%);
+    border-radius: 8px;
+    padding: 16px 14px;
+    border: 1px solid rgba(45,125,210,0.18);
+    margin-bottom: 4px;
+  }
+  .teach-row.featured .tr-role {
+    font-size: 0.96rem;
+    font-weight: 600;
+    color: var(--accent);
+  }
+  .teach-logo {
+    width: 38px; height: 38px;
+    border-radius: 6px;
+    object-fit: contain;
+    background: #fff;
+    border: 1px solid var(--border);
+    padding: 2px;
+    flex-shrink: 0;
+  }
+  .tr-role { font-size: 0.86rem; font-weight: 500; color: var(--text); margin-bottom: 2px; }
+  .tr-org { font-size: 0.78rem; color: #444; font-weight: 400; }
+  .tr-period {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.63rem;
+    color: #4a4755;
+    white-space: nowrap;
+    background: var(--surface2);
+    padding: 3px 7px;
+    border-radius: 3px;
+    margin-top: 2px;
+  }
+  .role-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 9px;
+    padding: 14px 18px;
+    margin-bottom: 8px;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 12px; align-items: center;
+    transition: all 0.15s;
+  }
+  .role-card:hover { border-color: rgba(45,125,210,0.28); box-shadow: 0 3px 12px var(--shadow); }
+  .role-logo {
+    width: 36px; height: 36px;
+    border-radius: 6px;
+    object-fit: contain;
+    background: #fff;
+    border: 1px solid var(--border);
+    padding: 2px;
+    flex-shrink: 0;
+  }
+  .role-t { font-size: 0.85rem; font-weight: 500; color: var(--text); }
+  .role-o { font-size: 0.76rem; color: #444; margin-top: 2px; font-weight: 400; }
+  .rev-grid { display: flex; flex-wrap: wrap; gap: 7px; }
+  .rchip {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 6px 12px;
+    font-size: 0.79rem;
+    color: #333;
+    transition: all 0.15s;
+    font-weight: 400;
+  }
+  .rchip:hover { border-color: var(--accent); color: var(--accent); background: var(--accent-light); }
+  .rchip.j { border-style: dashed; }
+
+  /* AWARDS */
+  .award-sec { margin-bottom: 44px; }
+  .award-sec h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem; font-weight: 600;
+    margin-bottom: 18px;
+    padding-bottom: 9px;
+    border-bottom: 1px solid var(--border);
+  }
+  .travel-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 9px;
+    padding: 18px 22px;
+    margin-bottom: 10px;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 14px;
+    align-items: start;
+    transition: all 0.2s;
+  }
+  .travel-card:hover { box-shadow: 0 4px 16px var(--shadow); transform: translateX(3px); }
+  .tmed { font-size: 1.4rem; }
+  .tt { font-size: 0.88rem; font-weight: 500; color: var(--text); margin-bottom: 3px; }
+  .td { font-size: 0.76rem; color: var(--muted); line-height: 1.5; font-style: italic; }
+  .award-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+    gap: 14px;
+  }
+  .acard {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 9px;
+    padding: 18px;
+    transition: all 0.2s;
+    position: relative;
+  }
+  .acard:hover { box-shadow: 0 4px 16px var(--shadow); }
+  .aem { font-size: 1.3rem; margin-bottom: 9px; }
+  .an { font-size: 0.88rem; font-weight: 600; margin-bottom: 3px; color: var(--text); }
+  .ad { font-size: 0.78rem; color: #3a3a3a; line-height: 1.6; font-weight: 400; }
+  .ayr {
+    position: absolute; top: 13px; right: 13px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.58rem; color: var(--muted);
+    background: var(--surface2); padding: 2px 5px; border-radius: 3px;
+  }
+
+  /* Undergrad pubs section */
+  .ug-section {
+    margin-top: 48px;
+    padding-top: 32px;
+    border-top: 2px solid var(--border);
+  }
+  .ug-head {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem; font-weight: 600;
+    margin-bottom: 6px; color: var(--text);
+  }
+  .ug-sub {
+    font-size: 0.8rem; color: var(--muted);
+    margin-bottom: 24px; font-style: italic;
+  }
+  .ug-prow {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 10px;
+    align-items: start;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .ug-prow:last-child { border-bottom: none; }
+
+  /* TALKS PAGE */
+  .talk-item {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    margin-bottom: 20px;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    background: var(--surface);
+    transition: box-shadow 0.25s;
+    /* Fixed height for consistency */
+    height: 260px;
+  }
+  .talk-item:hover { box-shadow: 0 8px 32px var(--shadow)); }
+  .talk-item.reversed { direction: rtl; }
+  .talk-item.reversed > * { direction: ltr; }
+  .talk-text {
+    padding: 28px 32px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 8px;
+    overflow: hidden;
+  }
+  .talk-type {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 500;
+  }
+  .talk-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem; font-weight: 600;
+    color: var(--text);
+    line-height: 1.3;
+  }
+  .talk-location {
+    font-size: 0.76rem;
+    color: var(--muted);
+    font-style: italic;
+    display: flex; align-items: center; gap: 6px;
+  }
+  .talk-location::before {
+    content: '';
+    display: inline-block;
+    width: 3px; height: 14px;
+    background: var(--accent);
+    border-radius: 2px;
+    flex-shrink: 0;
+  }
+  .talk-desc {
+    font-size: 0.82rem;
+    line-height: 1.65;
+    color: #333;
+    font-weight: 400;
+  }
+  .talk-desc strong { font-weight: 600; color: var(--text); }
+  .talk-img {
+    overflow: hidden;
+    position: relative;
+    /* Fixed height from parent */
+    height: 260px;
+  }
+  .talk-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+    display: block;
+    transition: transform 0.4s ease;
+  }
+  .talk-item:hover .talk-img img { transform: scale(1.03); }
+
+  @media (max-width: 800px) {
+    .talk-item {
+      grid-template-columns: 1fr;
+      height: auto;
+    }
+    .talk-item.reversed { direction: ltr; }
+    .talk-img {
+      height: 200px;
+    }
+  }
+
+  /* Reveal animation */
+  .rev { opacity: 0; transform: translateY(14px); transition: all 0.48s ease; }
+  .rev.in { opacity: 1; transform: none; }
+
+  /* Mobile */
+  .menu-btn {
+    display: none;
+    position: fixed; top: 12px; left: 12px; z-index: 200;
+    background: var(--sidebar-bg); color: #fff;
+    border: none; border-radius: 6px;
+    padding: 7px 11px; font-size: 1rem; cursor: pointer;
+  }
+  @media (max-width: 800px) {
+    #sidebar { transform: translateX(-100%); }
+    #sidebar.open { transform: translateX(0); }
+    main { margin-left: 0; }
+    .menu-btn { display: block; }
+    .page-hero, .content { padding: 28px 22px; }
+    .home-grid { grid-template-columns: 1fr; padding: 28px 22px; }
+    .proj-head { grid-template-columns: 1fr; }
+    .ni-row { grid-template-columns: auto auto 1fr; }
+    .ni-date { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<button class="menu-btn" onclick="document.getElementById('sidebar').classList.toggle('open')">☰</button>
+
+<aside id="sidebar">
+  <div class="sidebar-profile">
+    <img src="images/ataher_home.jpg" alt="Ataher Sams" class="sidebar-avatar">
+    <div class="sidebar-name">Ataher Sams</div>
+    <div class="sidebar-role">PhD Student · ECE<br>University of Illinois Chicago</div>
+  </div>
+  <nav>
+    <div class="nav-label">Main</div>
+    <a href="#" onclick="show('home');return false;" class="active" id="nav-home"><span class="ni">🏠</span> Home</a>
+    <a href="#" onclick="show('research');return false;" id="nav-research"><span class="ni">📡</span> Research</a>
+    <a href="#" onclick="show('education');return false;" id="nav-education"><span class="ni">🎓</span> Education</a>
+    <a href="#" onclick="show('projects');return false;" id="nav-projects"><span class="ni">🛠️</span> Projects</a>
+    <div class="nav-label">Misc</div>
+    <a href="#" onclick="show('teaching');return false;" id="nav-teaching"><span class="ni">🧑‍🏫</span> Teaching & Service</a>
+    <a href="#" onclick="show('talks');return false;" id="nav-talks"><span class="ni">🎤</span> Conferences & Talks</a>
+    <a href="#" onclick="show('awards');return false;" id="nav-awards"><span class="ni">🏆</span> Awards</a>
+  </nav>
+  <div class="sidebar-foot">
+    <div class="sb-links">
+      <a href="https://scholar.google.com/citations?user=h0P-8HcAAAAJ" target="_blank">Scholar</a>
+      <a href="mailto:asams3@uic.edu">Email</a>
+    </div>
+    <div class="sb-email">asams3 (at) uic.edu</div>
+  </div>
+</aside>
+
+<main>
+
+<!-- HOME -->
+<div id="home" class="page active">
+  <div class="page-hero">
+    <div class="pg-label">PhD Researcher</div>
+    <h1>Ataher <em>Sams</em></h1>
+    <div class="home-tags">
+      <span class="htag">Wireless Communication</span>
+      <span class="htag">Integrated Sensing & Communication</span>
+      <span class="htag or">6G Systems</span>
+      <span class="htag gr">Signal Processing</span>
+      <span class="htag gr">Machine Learning</span>
+    </div>
+  </div>
+
+  <div class="home-grid">
+    <div>
+      <p class="home-bio">
+      I am a PhD student in Electrical Engineering at the <strong>University of Illinois Chicago</strong>, working with
+      <a href="https://scholar.google.com/citations?user=SEN6Kb4AAAAJ&hl=en" target="_blank">Dr. Besma Smida.</a>
+      My research sits at the intersection of Wireless Communication, Information and Estimation Theory, Signal Processing, and RF System Design — unified by a single question: how do we build wireless systems with dual sensing and communication capability, and what is the fundamental cost of having both?
+    </p>
+    <p class="home-bio" style="margin-top:10px;">
+      I approach this from three angles: (1) deriving theoretical limits for Integrated Sensing and Communication (ISAC) under practical, statistically-described channel conditions; (2) co-designing fragmented multi-band waveforms for the FR3 band using reconfigurable antenna architectures to enhance both sensing and communication; and (3) developing receiver-side signal recovery schemes that remain robust under strong radar interference.
+    </p>
+
+      <div class="news-head">
+        <div class="ndot"></div>
+        <h3>Latest News</h3>
+      </div>
+      <div class="news-list">
+        <div class="ni-row"><span class="ni-date">Jan 10, 2026</span><span class="ncap nc-t">TEACHING</span><div class="ni-text">TAing ECE 311: Communication Engineering (Instructor: Prof. Natasha Devroye).</div></div>
+        <div class="ni-row"><span class="ni-date">Oct 27, 2025</span><span class="ncap nc-c">CONFERENCE</span><div class="ni-text">Presented paper on Reliability of Estimation Bounds in Low SNR regime at <strong>IEEE GLOBECOM</strong>, Taipei, Taiwan.</div></div>
+        <div class="ni-row"><span class="ni-date">Nov 20, 2025</span><span class="ncap nc-a">AWARD</span><div class="ni-text">Received <strong>UIC Graduate Student Council Travel Award</strong> for Q2-2025.</div></div>
+        <div class="ni-row"><span class="ni-date">Nov 08, 2025</span><span class="ncap nc-a">AWARD</span><div class="ni-text">Received <strong>IEEE Globecom 2025 Travel Grant</strong> from NSF.</div></div>
+        <div class="ni-row"><span class="ni-date">Oct 27, 2025</span><span class="ncap nc-c">CONFERENCE</span><div class="ni-text">Presented ongoing research on Reconfigurable Pixel Antenna for ISAC at <strong>2025 Asilomar Conference</strong>, California.</div></div>
+        <div class="ni-row"><span class="ni-date">Aug 21, 2025</span><span class="ncap nc-t">TEACHING</span><div class="ni-text">TAing ECE 311: Communication Engineering (Instructor: Prof. Besma Smida).</div></div>
+        <div class="ni-row"><span class="ni-date">Aug 15, 2025</span><span class="ncap nc-p">PUBLICATION</span><div class="ni-text">Paper accepted at <strong>61st Allerton Conference</strong> on Communication, Control, and Computing at UIUC.</div></div>
+        <div class="ni-row"><span class="ni-date">Aug 01, 2025</span><span class="ncap nc-p">PUBLICATION</span><div class="ni-text">Paper "On the Reliability of Estimation Bounds in Low-SNR Bistatic ISAC" accepted at <strong>IEEE Globecom 2025</strong>.</div></div>
+        <div class="ni-row"><span class="ni-date">Jul 01, 2025</span><span class="ncap nc-s">SERVICE</span><div class="ni-text">Vice Chair, IEEE ComSoc Student Branch Chapter; President, Bangladeshi Students Association at UIC.</div></div>
+        <div class="ni-row"><span class="ni-date">Jan 23, 2025</span><span class="ncap nc-ph">PHD</span><div class="ni-text">Started collaboration with <strong>Rice University & Aalto University</strong> on mixed-domain wireless design for FR3 / 6G.</div></div>
+        <div class="ni-row"><span class="ni-date">Jan 13, 2025</span><span class="ncap nc-t">TEACHING</span><div class="ni-text">TAing ECE 311: Communication Engineering (Instructor: Prof. Besma Smida).</div></div>
+        <div class="ni-row"><span class="ni-date">Oct 28, 2024</span><span class="ncap nc-c">CONFERENCE</span><div class="ni-text">Presented at <strong>2024 Asilomar Conference</strong>, California — fundamental bounds for low-SNR ISAC.</div></div>
+        <div class="ni-row"><span class="ni-date">May 13, 2024</span><span class="ncap nc-ph">PHD</span><div class="ni-text">Passed PhD Qualifying Exam (Communication & Signal Processing) on <strong>first attempt</strong>.</div></div>
+        <div class="ni-row"><span class="ni-date">Aug 15, 2023</span><span class="ncap nc-ph">PHD</span><div class="ni-text">Joined UIC as a PhD student under Dr. Besma Smida.</div></div>
+      </div>
+    </div>
+
+    <div>
+      <!-- <div class="icard">
+        <h4>Quick Info</h4>
+        <div class="irow"><span class="ic">🏫</span><div class="iv"><strong>University of Illinois Chicago</strong>PhD in Electrical Engineering</div></div>
+        <div class="irow"><span class="ic">🔬</span><div class="iv"><strong>Advisor</strong>Dr. Besma Smida</div></div>
+        <div class="irow"><span class="ic">📍</span><div class="iv"><strong>Location</strong>Chicago, IL, USA</div></div>
+        <div class="irow"><span class="ic">🎓</span><div class="iv"><strong>BSc (EEE)</strong>BUET, Bangladesh</div></div>
+        <div class="irow"><span class="ic">📅</span><div class="iv"><strong>PhD Started</strong>Fall 2023</div></div>
+      </div> -->
+      <div class="icard">
+        <h4>Skills</h4>
+
+        <div style="margin-bottom:14px;">
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:0.6rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--muted);margin-bottom:8px;">Proficient</div>
+          <div style="display:flex;flex-wrap:wrap;gap:6px;">
+            <span class="htag">MATLAB</span>
+            <span class="htag">Python</span>
+            <span class="htag">Ansys HFSS</span>
+            <span class="htag">LTSpice</span>
+          </div>
+        </div>
+
+        <div style="margin-bottom:14px;">
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:0.6rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--muted);margin-bottom:8px;">Familiar</div>
+          <div style="display:flex;flex-wrap:wrap;gap:6px;">
+            <span class="htag gr">PyTorch</span>
+            <span class="htag gr">C</span>
+            <span class="htag gr">Arduino</span>
+            <span class="htag gr">ADS</span>
+          </div>
+        </div>
+
+        <div>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:0.6rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--muted);margin-bottom:8px;">Lab Instruments</div>
+          <div style="display:flex;flex-wrap:wrap;gap:6px;">
+            <span class="htag or">Signal Generator</span>
+            <span class="htag or">Spectrum Analyzer</span>
+            <span class="htag or">Oscilloscope</span>
+            <span class="htag or">VNA</span>
+          </div>
+        </div>
+      </div>
+      <div class="icard qlink">
+        <h4>Links</h4>
+        <a href="https://scholar.google.com/citations?user=h0P-8HcAAAAJ&hl=en&oi=ao" target="_blank">📖 Google Scholar <span>↗</span></a>
+        <a href="mailto:asams3@uic.edu">✉️ asams3@uic.edu <span>→</span></a>
+        <a href="https://github.com/asnsams" target="_blank">💻 GitHub <span>↗</span></a>
+        <a href="https://www.linkedin.com/in/ataher-sams/" target="_blank">💼 LinkedIn <span>↗</span></a>
+      </div>
+      <div class="icard dark-card">
+        <h4>Office</h4>
+        <p>SEO 900, Science & Engineering Offices<br>851 S Morgan St, Chicago, IL 60607</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- RESEARCH -->
+<div id="research" class="page">
+  <div class="page-hero">
+    <div class="pg-label">Academic Work</div>
+    <h1>Research &amp; <em>Publications</em></h1>
+  </div>
+  <div class="content">
+
+    <div class="proj-block rev">
+      <div class="proj-head">
+        <span class="pnum">PROJECT 01</span>
+        <div>
+          <h3>Integrated Sensing and Communication (ISAC)</h3>
+          <div class="proj-collab">with Dr. Besma Smida, Dr. Natasha Devroye, Dr. Daniela Tuninetti (University of Illinois Chicago) &amp; Dr. Giorgio Taricco (Politecnico di Torino)</div>
+        </div>
+      </div>
+      <div class="proj-body">
+        <!-- Project 01 -->
+        <p class="proj-desc">
+          In practical downlink networks, instantaneous channel state information at the transmitter is often unavailable and it is costly to acquire, frequently delayed, and unreliable in multi-user or multi-target scenarios. This forces ISAC systems to rely instead on statistical channel knowledge, raising a fundamental question: what are the theoretical limits of integrated sensing and communication when the transmitter operates without full Channel State Information? We characterize these limits through an information and estimation-theoric lens, while also addressing a key gap in sensing benchmarks — the classical Cramér–Rao bound is only reliable at high SNR and unreliable in low-SNR regimes. To handle this, we explore the Ziv–Zakai bound for ISAC, which incorporates prior information and remains accurate across all SNR conditions.
+        </p>
+        <div class="papers-lbl">Papers</div>
+        <div class="prow">
+          <span class="pidx">[*]</span>
+          <div>
+            <div class="ptitle">Broadcast ISAC Without Instantaneous Transmit CSI: An Ergodic Rate-BCRB Framework - Work in Progress</div>
+            <div class="pvenue">A. Sams, B. Smida, N. Devroye, D. Tuninetti, G. Taricco </div>
+          </div>
+          <div style="display:flex;flex-direction:column;align-items:flex-end;gap:3px">
+            <span class="pbadge pb-wip">IN PROGRESS - JOURNAL</span>
+          </div>
+        </div>
+        <div class="prow">
+          <span class="pidx">[2]</span>
+          <div>
+            <div class="ptitle">On The Reliability of Estimation Bounds in Low-SNR Bi-Static ISAC</div>
+            <div class="pvenue">A. Sams, B. Smida — IEEE GLOBECOM 2025, Taipei, Taiwan</div>
+          </div>
+          <div style="display:flex;flex-direction:column;align-items:flex-end;gap:3px">
+            <span class="pbadge pb-ok">ACCEPTED</span>
+            <div style="display:flex;gap:4px;margin-top:2px;flex-wrap:wrap;justify-content:flex-end">
+              <a href="https://arxiv.org/pdf/2601.13216" target="_blank" class="arxiv-btn">📄 arXiv</a>
+            </div>
+          </div>
+        </div>
+        <div class="prow">
+          <span class="pidx">[1]</span>
+          <div>
+            <div class="ptitle">On Estimation of Angles of Arrival in Monostatic ISAC Without Instantaneous Transmit CSI at the Transmitter</div>
+            <div class="pvenue">A. Sams, S. Di Bari, B. Smida, N. Devroye, D. Tuninetti, G. Taricco — 61st Allerton Conference, UIUC, 2025</div>
+          </div>
+          <div style="display:flex;flex-direction:column;align-items:flex-end;gap:3px">
+            <span class="pbadge pb-ok">ACCEPTED</span>
+            <div style="display:flex;gap:4px;margin-top:2px;flex-wrap:wrap;justify-content:flex-end">
+              <a href="https://arxiv.org/pdf/2510.08793" target="_blank" class="arxiv-btn">📄 arXiv</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="proj-block rev" style="transition-delay:0.1s">
+      <div class="proj-head">
+        <span class="pnum" style="background:var(--accent2)">PROJECT 02</span>
+        <div>
+          <h3>FR3 Multi-band Mixed Domain System Design</h3>
+          <div class="proj-collab">with Dr. Besma Smida (University of Illinois Chicago) · Dr. Ashutosh Sabharwal (Rice University) · Dr. Risto Wichman &amp; Dr. Pasi Ylä-Oijala (Aalto University)</div>
+        </div>
+      </div>
+      <div class="proj-body">
+        <!-- Project 02 -->
+        <p class="proj-desc">
+          The FR3 band (7–24 GHz) is a promising candidate for 6G, offering wide bandwidth; but this very breadth introduces a problem: fragmented band, ropagation loss, antenna aperture, and hardware behavior vary significantly across the band, making conventional single-band MIMO architectures ineffective. Sensing and communication signals must also coexist with incumbent services already occupying parts of this spectrum, further constraining system design. This project develops a framework that exploits the fragmented, frequency-partitioned structure of FR3 rather than fighting it, using reconfigurable antenna architectures to adaptively reshape beam patterns and enable efficient multi-band operation within a single hardware platform.
+        </p>
+        <div class="papers-lbl">Papers</div>
+        <div class="prow">
+          <span class="pidx">[1]</span>
+          <div>
+            <div class="ptitle">Optimizing ISAC MIMO Systems with Reconfigurable Pixel Antennas</div>
+            <div class="pvenue">A. Sams, Y. Hsiao, M. Talha, B. Smida, A. Sabharwal — Asilomar Conference on Signals, Systems, and Computers, 2025</div>
+          </div>
+          <div style="display:flex;flex-direction:column;align-items:flex-end;gap:3px">
+            <span class="pbadge pb-ok">ACCEPTED</span>
+            <div style="display:flex;gap:4px;margin-top:2px;flex-wrap:wrap;justify-content:flex-end">
+              <a href="https://arxiv.org/pdf/2512.03319" target="_blank" class="arxiv-btn">📄 arXiv</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="proj-block rev" style="transition-delay:0.2s">
+      <div class="proj-head">
+        <span class="pnum" style="background:var(--accent3)">PROJECT 03</span>
+        <div>
+          <h3>Radar-Communication Co-existence through Underlay Communication</h3>
+          <div class="proj-collab">with Dr. Besma Smida (UIC)</div>
+        </div>
+      </div>
+      <div class="proj-body">
+        <!-- Project 03 -->
+        <p class="proj-desc">
+          In a system where radar and communication share the same frequency spectrum, the radar's own transmitted signal creates interference that can drown out the communication signal which creates a fundamental coexistence problem. Canonical Correlation Analysis (CCA) offers an elegant solution: it identifies the maximally correlated subspaces between two signal sets, enabling the system to mathematically separate the radar and communication components even when they overlap spectrally. This project extends CCA to RadCom settings to achieve clean signal separation without requiring high SNR, and examines both the theoretical limits and practical feasibility of this approach under adversarial jamming conditions.
+        </p>
+        <div class="papers-lbl">Papers</div>
+        <div class="prow">
+          <span class="pidx">—</span>
+          <div><div class="ptitle">Work in Progress</div><div class="pvenue">Ongoing research</div></div>
+          <span class="pbadge pb-wip">IN PROGRESS - CONFERENCE</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- UNDERGRAD PUBLICATIONS -->
+    <div class="ug-section rev">
+      <div class="ug-head">Undergraduate Research</div>
+      <div class="ug-sub">Prior research conducted during BSc at BUET, Bangladesh — spanning computer vision, generative models, and deep learning.</div>
+
+      <div class="ug-prow">
+        <span class="pidx">[C3]</span>
+        <div>
+          <div class="ptitle">SignBD-Word: Video-Based Bangla Word-Level Sign Language and Pose Translation</div>
+          <div class="pvenue">A. Sams, A. H. Akash, S. M. M. Rahman — 14th Int'l Conf. on Computing Communication and Networking Technologies (ICCCNT), Delhi, India, 2023</div>
+        </div>
+        <div style="display:flex;flex-direction:column;align-items:flex-end;gap:3px">
+          <span class="pbadge pb-ok">PUBLISHED</span>
+          <div style="display:flex;gap:4px;margin-top:2px;flex-wrap:wrap;justify-content:flex-end">
+            <a href="https://drive.google.com/file/d/1GAjHdofGGxOfCnD81pvdiocs53M3ZucQ/view" target="_blank" class="pdf-btn">📄 PDF</a>
+            <a href="https://zenodo.org/records/6779843" target="_blank" class="data-btn">🗄️ Dataset</a>
+          </div>
+        </div>
+      </div>
+      <div class="ug-prow">
+        <span class="pidx">[J1]</span>
+        <div>
+          <div class="ptitle">HQ-finGAN: High-Quality Synthetic Fingerprint Generation Using GANs</div>
+          <div class="pvenue">A. Sams, H. H. Shomee, S. M. M. Rahman — Circuits, Systems, and Signal Processing, vol. 41, pp. 6354–6369, 2022</div>
+        </div>
+        <div style="display:flex;flex-direction:column;align-items:flex-end;gap:3px">
+          <span class="pbadge pb-ok">JOURNAL</span>
+          <div style="display:flex;gap:4px;margin-top:2px;flex-wrap:wrap;justify-content:flex-end">
+            <a href="https://drive.google.com/file/d/1VhZ2y0ZUcbF-cv3bO3PE7xmiV9ts2NKJ/view" target="_blank" class="pdf-btn">📄 PDF</a>
+            <a href="https://figshare.com/articles/dataset/HQ-finGAN_Synthetic_Fingerprint_Dataset/16628413/1" target="_blank" class="data-btn">🗄️ Dataset</a>
+          </div>
+        </div>
+      </div>
+      <div class="ug-prow">
+        <span class="pidx">[C2]</span>
+        <div>
+          <div class="ptitle">GAN-Based Realistic Gastrointestinal Polyp Image Synthesis</div>
+          <div class="pvenue">A. Sams, H. H. Shomee — IEEE 19th Int'l Symposium on Biomedical Imaging (ISBI), Kolkata, India, 2022</div>
+        </div>
+        <div style="display:flex;flex-direction:column;align-items:flex-end;gap:3px">
+          <span class="pbadge pb-ok">PUBLISHED</span>
+          <div style="display:flex;gap:4px;margin-top:2px;flex-wrap:wrap;justify-content:flex-end">
+            <a href="https://drive.google.com/file/d/1SvoZkphGGyeePbvt3d9ON4y10GbcokF3/view" target="_blank" class="pdf-btn">📄 PDF</a>
+            <a href="https://zenodo.org/records/5537151" target="_blank" class="data-btn">🗄️ Dataset</a>
+          </div>
+        </div>
+      </div>
+      <div class="ug-prow">
+        <span class="pidx">[C1]</span>
+        <div>
+          <div class="ptitle">License Plate Detection and Recognition System for All Types of Bangladeshi Vehicles Using Multi-step Deep Learning Model</div>
+          <div class="pvenue">H. H. Shomee, A. Sams — Digital Image Computing: Techniques and Applications (DICTA), Gold Coast, Australia, 2021</div>
+        </div>
+        <div style="display:flex;flex-direction:column;align-items:flex-end;gap:3px">
+          <span class="pbadge pb-ok">PUBLISHED</span>
+          <div style="display:flex;gap:4px;margin-top:2px;flex-wrap:wrap;justify-content:flex-end">
+            <a href="https://drive.google.com/file/d/1nYQe1ZAzq0XowMZ9QyfNm1bv4ADqkeah/view" target="_blank" class="pdf-btn">📄 PDF</a>
+            <a href="https://zenodo.org/records/4718238" target="_blank" class="data-btn">🗄️ Dataset</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- EDUCATION -->
+<div id="education" class="page">
+  <div class="page-hero">
+    <div class="pg-label">Academic Background</div>
+    <h1>Education</em></h1>
+  </div>
+  <div class="content">
+    <div class="edu-card rev">
+      <div class="edu-ico"><img src="images/UIC_logo.png" alt="UIC" style="width:48px;height:48px;object-fit:contain;border-radius:4px;"></div>
+      <div>
+        <div class="edu-uni">University of Illinois Chicago</div>
+        <div class="edu-deg">Ph.D. in Electrical Engineering</div>
+        <div class="edu-dept">Dept. of Electrical and Computer Engineering</div>
+        <div class="edu-period">Fall 2023 — Ongoing</div>
+        <div class="edu-note">Research advisor: Dr. Besma Smida. Qualifying exams passed (Communication & Signal Processing) on May 2024. Active member of IEEE ComSoc Student Branch Chapter and Bangladeshi Students Association.</div>
+      </div>
+    </div>
+    <div class="edu-card rev" style="transition-delay:0.1s">
+      <div class="edu-ico"><img src="images/BUET_logo.svg" alt="BUET" style="width:48px;height:48px;object-fit:contain;border-radius:4px;"></div>
+      <div>
+        <div class="edu-uni">Bangladesh University of Engineering and Technology (BUET)</div>
+        <div class="edu-deg">BSc in Electrical Engineering</div>
+        <div class="edu-dept">Dept. of Electrical and Electronic Engineering</div>
+        <div class="edu-period">Graduated 2022</div>
+        <div class="edu-note">Research advisor: Dr. S. M. Mahbubur Rahman. Undergraduate thesis on video-based Bangla Sign Language dataset and pose translation — awarded "Special Innovation Category" at AI for Bangla 2.0 (2023).</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PROJECTS -->
+<div id="projects" class="page">
+  <div class="page-hero">
+    <div class="pg-label"></div>
+    <h1>Academic Projects</h1>
+  </div>
+  <div class="content">
+    <div class="clevel-head rev">PhD Course Projects <span class="clevel-badge">UIC</span></div>
+    <div class="course-grid rev">
+      <div class="ccard">
+        <div class="cc-code">ECE 522 · Advanced Microwave Engineering</div>
+        <div class="cc-name">Pixel Antenna Design for Reconfigurable Frequency, Pattern, and Reflection Control</div>
+        <div class="cc-tools"><span class="tchip">HFSS</span></div>
+      </div>
+      <div class="ccard">
+        <div class="cc-code">CS 594 · Energy Efficient Deep Learning</div>
+        <div class="cc-name">Energy Efficient Patent Classification on Text-attributed Graph</div>
+        <div class="cc-tools"><span class="tchip">Python</span></div>
+        <div class="proj-link-btns">
+          <a href="https://github.com/hhshomee/CS594PatentProject/tree/main" target="_blank" class="proj-link-btn">💻 GitHub ↗</a>
+        </div>
+      </div>
+      <div class="ccard">
+        <div class="cc-code">ECE 508 · Convex Optimization</div>
+        <div class="cc-name">Solution of Real-world Convex Problems</div>
+        <div class="cc-tools"><span class="tchip">Python</span></div>
+        <div class="proj-link-btns">
+          <a href="https://github.com/asnsams/a-few-convex-optimization-solves" target="_blank" class="proj-link-btn">💻 GitHub ↗</a>
+        </div>
+      </div>
+      <div class="ccard">
+        <div class="cc-code">ECE 421 · Intro to Antenna and Propagation</div>
+        <div class="cc-name">Multiband Quasi Yagi Type Antenna</div>
+        <div class="cc-tools"><span class="tchip">Ansys HFSS</span></div>
+      </div>
+      <div class="ccard">
+        <div class="cc-code">ECE 418 · Statistical Signal Processing</div>
+        <div class="cc-name">Compressive Sensing; Acoustic Echo Cancellation using Adaptive Filters</div>
+        <div class="cc-tools"><span class="tchip">MATLAB</span></div>
+        <div class="proj-link-btns">
+          <a href="https://github.com/asnsams/Compressive-Sensing-Image-Reconstruction-Basic-Algorithm" target="_blank" class="proj-link-btn">💻 GitHub ↗</a>
+        </div>
+      </div>
+      <div class="ccard">
+        <div class="cc-code">ECE 432 · Digital Communications</div>
+        <div class="cc-name">GAN for Channel Estimation in Massive MIMO with One-Bit ADCs</div>
+        <div class="cc-tools"><span class="tchip">MATLAB</span><span class="tchip">Python</span></div>
+        <div class="proj-link-btns">
+          <a href="https://drive.google.com/file/d/1olEiXESel0gtdLNRR6ZZEqeSy4GiZnU8/view" target="_blank" class="proj-link-btn">📄 Report ↗</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="clevel-head rev">BSc Course Projects <span class="clevel-badge" style="background:#fdf2ea;color:var(--accent2);">BUET</span></div>
+    <div class="course-grid rev">
+      <div class="ccard">
+        <div class="cc-code">EEE 416 · Microprocessor &amp; Embedded System Lab</div>
+        <div class="cc-name">IoT Weather Sensor (Arduino and STM32cube Implementation)</div>
+        <div class="cc-tools"><span class="tchip">Proteus</span><span class="tchip">Arduino</span><span class="tchip">STM32CubeIDE</span></div>
+        <div class="proj-link-btns">
+          <a href="https://www.youtube.com/watch?v=RLUZbu9l6Rc" target="_blank" class="proj-link-btn yt">▶ YouTube ↗</a>
+          <a href="https://github.com/asnsams/IOT-weather-station--Proteus---Arduino--" target="_blank" class="proj-link-btn">💻 Arduino ↗</a>
+          <a href="https://github.com/asnsams/IOT-weather-station----Proteus---Stm32cube---" target="_blank" class="proj-link-btn">💻 STM32 ↗</a>
+        </div>
+      </div>
+      <div class="ccard">
+        <div class="cc-code">EEE 304 · Digital Electronics Laboratory</div>
+        <div class="cc-name">Tetris Game Implementation in Verilog and Proteus</div>
+        <div class="cc-tools"><span class="tchip">Verilog</span><span class="tchip">Proteus</span><span class="tchip">Arduino</span></div>
+        <div class="proj-link-btns">
+          <a href="https://www.youtube.com/watch?v=dasholXYmNc" target="_blank" class="proj-link-btn yt">▶ YouTube ↗</a>
+        </div>
+      </div>
+      <div class="ccard">
+        <div class="cc-code">EEE 310 · Communication Systems I Laboratory</div>
+        <div class="cc-name">Text Transmission Through Laser (Li-Fi)</div>
+        <div class="cc-tools"><span class="tchip">Arduino</span></div>
+        <div class="proj-link-btns">
+          <a href="https://www.youtube.com/watch?v=cq5fDZrWNWA" target="_blank" class="proj-link-btn yt">▶ YouTube ↗</a>
+          <a href="https://github.com/asnsams/Text-transmission-using-Laser--Li-fi-" target="_blank" class="proj-link-btn">💻 GitHub ↗</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- TEACHING & SERVICE -->
+<div id="teaching" class="page">
+  <div class="page-hero">
+    <div class="pg-label">Academic Contributions</div>
+    <h1>Teaching &amp; <em>Service</em></h1>
+  </div>
+  <div class="content">
+    <div class="srv-sec rev">
+      <h2>Teaching</h2>
+      <!-- Featured current TA role -->
+      <div class="teach-row featured">
+        <img src="images/UIC_logo.png" alt="UIC" class="teach-logo">
+        <div>
+          <div class="tr-role">Graduate Teaching Assistant — ECE 311: Communication Engineering</div>
+          <div class="tr-org">University of Illinois Chicago · Instructors: Prof. Besma Smida / Prof. Natasha Devroye</div>
+        </div>
+        <div class="tr-period">Spring 26, Fall 25,<br>Spring 25, Fall 24, Fall 23</div>
+      </div>
+      <div class="teach-row">
+        <img src="images/BRAC_logo.png" alt="BRAC University" class="teach-logo">
+        <div><div class="tr-role">Lecturer — Computer Science</div><div class="tr-org">Brac University, Bangladesh</div></div>
+        <div class="tr-period">Spring 22, Fall 22</div>
+      </div>
+      <div class="teach-row">
+        <img src="images/BUTEX_logo.png" alt="BUTEX" class="teach-logo">
+        <div><div class="tr-role">Lecturer — Dept. of TMDM</div><div class="tr-org">Bangladesh University of Textiles</div></div>
+        <div class="tr-period">Summer 22</div>
+      </div>
+    </div>
+
+    <div class="srv-sec rev">
+      <h2>Professional Roles</h2>
+      <div class="role-card">
+        <img src="images/comsoc_logo.png" alt="IEEE ComSoc" class="role-logo">
+        <div><div class="role-t">Vice Chair ('25–'26)</div><div class="role-o">IEEE ComSoc Student Branch Chapter at UIC</div></div>
+      </div>
+      <div class="role-card">
+        <img src="images/BSA_logo.png" alt="BSA" class="role-logo">
+        <div><div class="role-t">President ('25–'26)</div><div class="role-o">Bangladeshi Students Association at UIC</div></div>
+      </div>
+      <div class="role-card">
+        <span class="role-ico">📋</span>
+        <div><div class="role-t">Focus Group Graduate Student Member</div><div class="role-o">College of Engineering Strategic Plan (CoE)</div></div>
+      </div>
+    </div>
+
+    <div class="srv-sec rev">
+      <h2>Reviewer</h2>
+      <p style="font-size:0.8rem;color:#444;margin-bottom:12px;font-style:italic;">Conference Reviewer</p>
+      <div class="rev-grid" style="margin-bottom:20px;">
+        <div class="rchip">IEEE International Symposium on Information Theory (ISIT)</div>
+        <div class="rchip">IEEE Global Communications Conference (Globecom)</div>
+        <div class="rchip">IEEE International Conference on Communications (ICC)</div>
+        <div class="rchip">IEEE International Conference on Systems, Man, and Cybernetics (SMC)</div>
+        <div class="rchip">Int'l Conference on Electrical, Computer and Energy Technologies (ICECET)</div>
+        <div class="rchip">Int'l Symposium on Wireless Technology and Applications (ISWTA)</div>
+        <div class="rchip">Int'l Symposium on Computer Innovations (ISCI)</div>
+        <div class="rchip">Asilomar Conference on Signals, Systems, and Computers</div>
+      </div>
+      <p style="font-size:0.8rem;color:#444;margin-bottom:12px;font-style:italic;">Journal Reviewer</p>
+      <div class="rev-grid" style="margin-bottom:20px;">
+        <div class="rchip j">IEEE Transactions on Green Communications and Networking</div>
+      </div>
+      <p style="font-size:0.8rem;color:#444;margin-bottom:12px;font-style:italic;">TPC Reviewer</p>
+      <div class="rev-grid">
+        <div class="rchip">IEEE Mediterranean Communication and Computer Networking Conference (MEDITCOM)</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CONFERENCES & TALKS -->
+<div id="talks" class="page">
+  <div class="page-hero">
+    <div class="pg-label">Presentations</div>
+    <h1>Conferences &amp; <em>Talks</em></h1>
+  </div>
+  <div class="content">
+
+    <div class="talk-item rev">
+      <div class="talk-text">
+        <!-- <div class="talk-type">In-person Conference Presentation</div> -->
+        <div class="talk-title">2025 IEEE Global Communications Conference (Globecom 2025)</div>
+        <div class="talk-location">Taipei, Taiwan</div>
+        <div class="talk-desc">Presented our work on <strong>reliability of traditional estimation bounds</strong> in low SNR scenarios for Bistatic ISAC systems, at the beautiful city of Taipei, Taiwan.</div>
+      </div>
+      <div class="talk-img">
+        <img src="images/globecom_2025.jpg" alt="IEEE Globecom 2025 Taipei">
+      </div>
+    </div>
+
+    <div class="talk-item reversed rev" style="transition-delay:0.08s">
+      <div class="talk-img">
+        <img src="images/asilomar_2025.jpg" alt="Asilomar 2025 presentation">
+      </div>
+      <div class="talk-text">
+        <!-- <div class="talk-type">In-person Conference Presentation</div> -->
+        <div class="talk-title">2025 Asilomar Conference on Signals, Systems, and Computers</div>
+        <div class="talk-location">Pacific Grove, California, USA</div>
+        <div class="talk-desc">Presented our ongoing work on <strong>Reconfigurable Pixel Antenna for Integrated Sensing and Communication</strong>, showcasing how pattern reconfigurability provides higher sensing performance and hardware efficiency.</div>
+      </div>
+    </div>
+
+    <div class="talk-item rev" style="transition-delay:0.16s">
+      <div class="talk-text">
+        <!-- <div class="talk-type">In-person Conference Presentation</div> -->
+        <div class="talk-title">2024 Asilomar Conference on Signals, Systems, and Computers</div>
+        <div class="talk-location">Pacific Grove, California, USA</div>
+        <div class="talk-desc">Presented our ongoing work on <strong>estimation bounds for Integrated Sensing and Communication</strong>, which necessitates the use of a better sensing metric specially in low SNR scenarios, at the beautiful Asilomar conference grounds.</div>
+      </div>
+      <div class="talk-img">
+        <img src="images/asilomar_2024.jpg" alt="Asilomar 2024 presentation">
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- AWARDS -->
+<div id="awards" class="page">
+  <div class="page-hero">
+    <div class="pg-label">Recognition</div>
+    <h1>Awards &amp; <em>Grants</em></h1>
+  </div>
+  <div class="content">
+    <div class="award-sec rev">
+      <h2>Travel Grants</h2>
+      <div class="travel-card">
+        <span class="tmed">✈️</span>
+        <div><div class="tt">IEEE Globecom 2025 Travel Grant — NSF</div><div class="td">Awarded to travel to Taipei, Taiwan to present "On The Reliability of Estimation Bounds in Low-SNR Bi-Static ISAC."</div></div>
+      </div>
+      <div class="travel-card">
+        <span class="tmed">✈️</span>
+        <div><div class="tt">UIC Graduate Student Council Travel Award</div><div class="td">Awarded to travel to California to present "Optimizing ISAC MIMO Systems with Reconfigurable Pixel Antennas."</div></div>
+      </div>
+    </div>
+
+    <div class="award-sec rev">
+      <h2>Academic Awards</h2>
+      <div class="award-grid">
+        <div class="acard">
+          <div class="aem">🏅</div>
+          <div class="an">Bangladesh Math Olympiad</div>
+          <div class="ad"><strong>Regional:</strong> Champion (2008, 2010, 2014); 1st Runner-Up (2011, 2013); 2nd Runner-Up (2015)<br><strong>National:</strong> 2nd Runner-Up (2008, 2011)</div>
+        </div>
+        <div class="acard">
+          <div class="ayr">2023</div>
+          <div class="aem">🤖</div>
+          <div class="an">AI for Bangla 2.0</div>
+          <div class="ad">Winner — "Special Innovation Category" for BSc thesis on video-based Bangla Sign Language dataset and pose translation.</div>
+        </div>
+        <div class="acard">
+          <div class="ayr">2021</div>
+          <div class="aem">📐</div>
+          <div class="an">Analytical Olympiad — BracU</div>
+          <div class="ad">2nd Runner-Up</div>
+        </div>
+        <div class="acard">
+          <div class="ayr">2015</div>
+          <div class="aem">🔭</div>
+          <div class="an">Divisional Science Olympiad</div>
+          <div class="ad">6th place — Chattogram Division</div>
+        </div>
+        <div class="acard">
+          <div class="aem">📜</div>
+          <div class="an">Board Talent-pool Scholarship</div>
+          <div class="ad">JSC (2012) · SSC (2014) · HSC (2016)<br>Awarded across all three national exam levels.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</main>
+
+<div class="cur-dot" id="curDot"></div>
+<div class="cur-ring" id="curRing"></div>
+
+<script>
+// Cursor
+const dot = document.getElementById('curDot');
+const ring = document.getElementById('curRing');
+let mx = 0, my = 0, rx = 0, ry = 0;
+document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
+(function animCursor() {
+  dot.style.left = mx + 'px'; dot.style.top = my + 'px';
+  rx += (mx - rx) * 0.12; ry += (my - ry) * 0.12;
+  ring.style.left = rx + 'px'; ring.style.top = ry + 'px';
+  requestAnimationFrame(animCursor);
+})();
+document.addEventListener('mousedown', () => { ring.style.transform = 'translate(-50%,-50%) scale(0.7)'; ring.style.borderColor = 'rgba(45,125,210,0.8)'; });
+document.addEventListener('mouseup', () => { ring.style.transform = 'translate(-50%,-50%) scale(1)'; ring.style.borderColor = 'rgba(45,125,210,0.45)'; });
+
+function show(page) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('nav a').forEach(a => a.classList.remove('active'));
+  document.getElementById(page).classList.add('active');
+  document.getElementById('nav-' + page).classList.add('active');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+  document.getElementById('sidebar').classList.remove('open');
+  setTimeout(triggerReveal, 40);
+  return false;
+}
+
+function triggerReveal() {
+  const active = document.querySelector('.page.active');
+  if (!active) return;
+  active.querySelectorAll('.rev').forEach((el, i) => {
+    setTimeout(() => el.classList.add('in'), i * 70);
+  });
+}
+
+// Initial
+triggerReveal();
+
+// Sidebar avatar hover
+const avatar = document.querySelector('.sidebar-avatar');
+if (avatar) {
+  avatar.addEventListener('mouseenter', () => { avatar.style.filter = 'grayscale(0%)'; });
+  avatar.addEventListener('mouseleave', () => { avatar.style.filter = 'grayscale(15%)'; });
+}
+</script>
+</body>
+</html>

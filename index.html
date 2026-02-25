@@ -161,7 +161,7 @@
     to { opacity: 1; transform: translateY(0); }
   }
 
-  /* PAGE HERO — no ghost text watermark */
+  /* PAGE HERO */
   .page-hero {
     padding: 56px 56px 40px;
     border-bottom: 1px solid var(--border);
@@ -250,7 +250,6 @@
   .news-list::-webkit-scrollbar { width: 3px; }
   .news-list::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
 
-  /* Symmetric news rows: date col + badge col + text col */
   .ni-row {
     display: grid;
     grid-template-columns: 96px auto 1fr;
@@ -330,6 +329,15 @@
   }
   .dark-card h4 { color: #fff; }
   .dark-card p { font-size: 0.76rem; color: rgba(255,255,255,0.5); line-height: 1.7; }
+
+  /* Resume card hover effect */
+  .resume-card {
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .resume-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 28px rgba(45,125,210,0.28);
+  }
 
   /* RESEARCH */
   .proj-block {
@@ -758,10 +766,9 @@
     overflow: hidden;
     background: var(--surface);
     transition: box-shadow 0.25s;
-    /* Fixed height for consistency */
     height: 260px;
   }
-  .talk-item:hover { box-shadow: 0 8px 32px var(--shadow)); }
+  .talk-item:hover { box-shadow: 0 8px 32px var(--shadow); }
   .talk-item.reversed { direction: rtl; }
   .talk-item.reversed > * { direction: ltr; }
   .talk-text {
@@ -810,7 +817,6 @@
   .talk-img {
     overflow: hidden;
     position: relative;
-    /* Fixed height from parent */
     height: 260px;
   }
   .talk-img img {
@@ -939,14 +945,18 @@
     </div>
 
     <div>
-      <!-- <div class="icard">
-        <h4>Quick Info</h4>
-        <div class="irow"><span class="ic">🏫</span><div class="iv"><strong>University of Illinois Chicago</strong>PhD in Electrical Engineering</div></div>
-        <div class="irow"><span class="ic">🔬</span><div class="iv"><strong>Advisor</strong>Dr. Besma Smida</div></div>
-        <div class="irow"><span class="ic">📍</span><div class="iv"><strong>Location</strong>Chicago, IL, USA</div></div>
-        <div class="irow"><span class="ic">🎓</span><div class="iv"><strong>BSc (EEE)</strong>BUET, Bangladesh</div></div>
-        <div class="irow"><span class="ic">📅</span><div class="iv"><strong>PhD Started</strong>Fall 2023</div></div>
-      </div> -->
+      <!-- ① RESUME CARD — new addition -->
+      <div class="icard resume-card" style="background:linear-gradient(135deg,#2d7dd2 0%,#1a5fa8 100%);border:none;cursor:pointer;" onclick="window.open('images/Resume_ATAHER.pdf','_blank')">
+        <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;">
+          <div>
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:0.6rem;letter-spacing:0.15em;text-transform:uppercase;color:rgba(255,255,255,0.55);margin-bottom:6px;">Curriculum Vitae</div>
+            <h4 style="color:#fff;margin-bottom:4px;font-size:1rem;">View Resume</h4>
+            <div style="font-size:0.73rem;color:rgba(255,255,255,0.65);">PDF · Click to open ↗</div>
+          </div>
+          <div style="font-size:2.2rem;opacity:0.85;">📄</div>
+        </div>
+      </div>
+
       <div class="icard">
         <h4>Skills</h4>
 
@@ -956,7 +966,7 @@
             <span class="htag">MATLAB</span>
             <span class="htag">Python</span>
             <span class="htag">Ansys HFSS</span>
-            <span class="htag">LTSpice</span>
+            <span class="htag">LTspice</span>
           </div>
         </div>
 
@@ -1012,7 +1022,6 @@
         </div>
       </div>
       <div class="proj-body">
-        <!-- Project 01 -->
         <p class="proj-desc">
           In practical downlink networks, instantaneous channel state information at the transmitter is often unavailable and it is costly to acquire, frequently delayed, and unreliable in multi-user or multi-target scenarios. This forces ISAC systems to rely instead on statistical channel knowledge, raising a fundamental question: what are the theoretical limits of integrated sensing and communication when the transmitter operates without full Channel State Information? We characterize these limits through an information and estimation-theoric lens, while also addressing a key gap in sensing benchmarks — the classical Cramér–Rao bound is only reliable at high SNR and unreliable in low-SNR regimes. To handle this, we explore the Ziv–Zakai bound for ISAC, which incorporates prior information and remains accurate across all SNR conditions.
         </p>
@@ -1065,9 +1074,8 @@
         </div>
       </div>
       <div class="proj-body">
-        <!-- Project 02 -->
         <p class="proj-desc">
-          The FR3 band (7–24 GHz) is a promising candidate for 6G, offering wide bandwidth; but this very breadth introduces a problem: fragmented band, ropagation loss, antenna aperture, and hardware behavior vary significantly across the band, making conventional single-band MIMO architectures ineffective. Sensing and communication signals must also coexist with incumbent services already occupying parts of this spectrum, further constraining system design. This project develops a framework that exploits the fragmented, frequency-partitioned structure of FR3 rather than fighting it, using reconfigurable antenna architectures to adaptively reshape beam patterns and enable efficient multi-band operation within a single hardware platform.
+          The FR3 band (7–24 GHz) is a promising candidate for 6G, offering wide bandwidth; but this very breadth introduces a problem: fragmented band, propagation loss, antenna aperture, and hardware behavior vary significantly across the band, making conventional single-band MIMO architectures ineffective. Sensing and communication signals must also coexist with incumbent services already occupying parts of this spectrum, further constraining system design. This project develops a framework that exploits the fragmented, frequency-partitioned structure of FR3 rather than fighting it, using reconfigurable antenna architectures to adaptively reshape beam patterns and enable efficient multi-band operation within a single hardware platform.
         </p>
         <div class="papers-lbl">Papers</div>
         <div class="prow">
@@ -1095,7 +1103,6 @@
         </div>
       </div>
       <div class="proj-body">
-        <!-- Project 03 -->
         <p class="proj-desc">
           In a system where radar and communication share the same frequency spectrum, the radar's own transmitted signal creates interference that can drown out the communication signal which creates a fundamental coexistence problem. Canonical Correlation Analysis (CCA) offers an elegant solution: it identifies the maximally correlated subspaces between two signal sets, enabling the system to mathematically separate the radar and communication components even when they overlap spectrally. This project extends CCA to RadCom settings to achieve clean signal separation without requiring high SNR, and examines both the theoretical limits and practical feasibility of this approach under adversarial jamming conditions.
         </p>
@@ -1177,7 +1184,7 @@
 <div id="education" class="page">
   <div class="page-hero">
     <div class="pg-label">Academic Background</div>
-    <h1>Education</em></h1>
+    <h1>Education</h1>
   </div>
   <div class="content">
     <div class="edu-card rev">
@@ -1285,9 +1292,19 @@
           <a href="https://github.com/asnsams/Text-transmission-using-Laser--Li-fi-" target="_blank" class="proj-link-btn">💻 GitHub ↗</a>
         </div>
       </div>
+      <!-- ③ NEW BSc project — Linear Induction Motor -->
+      <div class="ccard">
+        <div class="cc-code">EEE 206 · Energy Conversion Laboratory</div>
+        <div class="cc-name">Application of Three Phase Linear Induction Motor</div>
+        <div class="cc-tools"><span class="tchip">Lab Experiment</span></div>
+        <div class="proj-link-btns">
+          <a href="https://youtu.be/IGX6_B_AbmQ?si=KykxM2JgoV1M2C2_&t=1" target="_blank" class="proj-link-btn yt">▶ YouTube ↗</a>
+        </div>
+      </div>
     </div>
   </div>
 </div>
+
 <!-- TEACHING & SERVICE -->
 <div id="teaching" class="page">
   <div class="page-hero">
@@ -1297,7 +1314,6 @@
   <div class="content">
     <div class="srv-sec rev">
       <h2>Teaching</h2>
-      <!-- Featured current TA role -->
       <div class="teach-row featured">
         <img src="images/UIC_logo.png" alt="UIC" class="teach-logo">
         <div>
@@ -1346,7 +1362,6 @@
         <div class="rchip">Int'l Conference on Electrical, Computer and Energy Technologies (ICECET)</div>
         <div class="rchip">Int'l Symposium on Wireless Technology and Applications (ISWTA)</div>
         <div class="rchip">Int'l Symposium on Computer & Informatics (ISCI)</div>
-        
       </div>
       <p style="font-size:0.8rem;color:#444;margin-bottom:12px;font-style:italic;">Journal Reviewer</p>
       <div class="rev-grid" style="margin-bottom:20px;">
@@ -1370,7 +1385,6 @@
 
     <div class="talk-item rev">
       <div class="talk-text">
-        <!-- <div class="talk-type">In-person Conference Presentation</div> -->
         <div class="talk-title">2025 IEEE Global Communications Conference (Globecom 2025)</div>
         <div class="talk-location">Taipei, Taiwan</div>
         <div class="talk-desc">Presented our work on <strong>reliability of traditional estimation bounds</strong> in low SNR scenarios for Bistatic ISAC systems, at the beautiful city of Taipei, Taiwan.</div>
@@ -1385,7 +1399,6 @@
         <img src="images/asilomar_2025.jpg" alt="Asilomar 2025 presentation">
       </div>
       <div class="talk-text">
-        <!-- <div class="talk-type">In-person Conference Presentation</div> -->
         <div class="talk-title">2025 Asilomar Conference on Signals, Systems, and Computers</div>
         <div class="talk-location">Pacific Grove, California, USA</div>
         <div class="talk-desc">Presented our ongoing work on <strong>Reconfigurable Pixel Antenna for Integrated Sensing and Communication</strong>, showcasing how pattern reconfigurability provides higher sensing performance and hardware efficiency.</div>
@@ -1394,7 +1407,6 @@
 
     <div class="talk-item rev" style="transition-delay:0.16s">
       <div class="talk-text">
-        <!-- <div class="talk-type">In-person Conference Presentation</div> -->
         <div class="talk-title">2024 Asilomar Conference on Signals, Systems, and Computers</div>
         <div class="talk-location">Pacific Grove, California, USA</div>
         <div class="talk-desc">Presented our ongoing work on <strong>estimation bounds for Integrated Sensing and Communication</strong>, which necessitates the use of a better sensing metric specially in low SNR scenarios, at the beautiful Asilomar conference grounds.</div>

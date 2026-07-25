@@ -675,6 +675,8 @@
     transition: box-shadow 0.2s;
   }
   .edu-card:hover { box-shadow: 0 6px 24px var(--shadow); }
+  .edu-sub { position: relative; margin-left: 2.75rem; }
+  .edu-sub::before { content:""; position:absolute; left:-1.55rem; top:-1.35rem; bottom:50%; width:1.4rem; border-left:2px solid var(--border); border-bottom:2px solid var(--border); border-bottom-left-radius:10px; pointer-events:none; }
   .edu-ico {
     width: 52px; height: 52px;
     border-radius: 8px;
@@ -1192,6 +1194,16 @@
     max-width: 580px;
     margin-bottom: 24px;
   }
+  .hero-title-line { font-family:'Newsreader',Georgia,serif; font-style:normal; font-size:1.5rem; font-weight:400; letter-spacing:-0.01em; color:var(--accent); margin:6px 0 12px; }
+  .hero-roles { display:flex; flex-direction:column; gap:5px; margin:-2px 0 24px; padding-left:13px; border-left:2px solid var(--border); max-width:580px; }
+  .hero-role { display:flex; align-items:baseline; gap:8px; flex-wrap:wrap; font-family:'IBM Plex Sans',sans-serif; font-size:0.9rem; line-height:1.45; color:#4a4f66; }
+  .hero-role b { font-weight:600; color:#25283a; }
+  .hero-role .hr-at { color:var(--muted); font-size:0.82rem; }
+  .hero-role .hr-uni { font-weight:600; color:#25283a; }
+  :root[data-theme="dark"] .hero-role .hr-uni { color:#e8ebf2; }
+  .hero-role-topic { font-family:'IBM Plex Mono',monospace; font-size:0.76rem; letter-spacing:0.06em; text-transform:uppercase; color:var(--accent); font-weight:500; }
+  :root[data-theme="dark"] .hero-role { color:#b9bfd0; }
+  :root[data-theme="dark"] .hero-role b { color:#e8ebf2; }
   .hero-tagline em {
     color: var(--accent);
     font-style: italic;
@@ -1886,9 +1898,12 @@
           </a>
         </div>
         <h1 class="hero-name-v2">Ataher <span class="ln-accent">Sams</span><canvas id="heroWave"></canvas></h1>
-        <p class="hero-tagline">
-          Building wireless systems with dual <em>sensing</em> and <em>communication</em> capability.
-        </p>
+        <div class="hero-title-line">Ph.D. Researcher</div>
+        <div class="hero-roles">
+          <div class="hero-role"><span class="hr-at"><span>Graduate Research Assistant</span> · <span class="hr-uni">University of Illinois Chicago</span></span></div>
+          <div class="hero-role"><span class="hr-at">Visiting Student Researcher · <span class="hr-uni">Rice University</span></span></div>
+          <div class="hero-role-topic">Wireless Communication &amp; Sensing</div>
+        </div>
         <div class="hero-tags-v2">
           <span class="htag">ISAC</span>
           <span class="htag">6G / FR3</span>
@@ -1898,8 +1913,6 @@
           <span class="htag gr">ML for Wireless</span>
         </div>
         <div class="hero-meta">
-          <span>University of Illinois Chicago</span>
-          <span class="mdivider"></span>
           <span><a href="#" class="eml" data-u="asams3" data-d="uic.edu" data-show="1"></a></span>
         </div>
       </div>
@@ -1918,19 +1931,14 @@
         <div class="opp-icon">🔍</div>
         <div class="opp-text">
           <div class="opp-eyebrow"><span class="opp-eyebrow-dot"></span>Open to opportunities</div>
-          <div class="opp-body">I am actively seeking <strong>internship positions</strong> in wireless communications and RF systems — spanning system design, signal processing, sensing, ML for wireless, and 5G/6G research.</div>
+          <div class="opp-body">I am actively seeking <strong>internship positions for Spring 2027 or Fall 2027</strong> in wireless communication, sensing, ML for wireless, and 6G research.</div>
         </div>
         <div class="opp-cta">✉ Get in touch →</div>
       </a>
 
       <p class="home-bio">
-        I'm a PhD student in Electrical Engineering at the <strong>University of Illinois Chicago</strong>, working with <a href="https://besmasmida.github.io/BesmaSmida/index.html" target="_blank">Dr. Besma Smida</a>. My research sits at the intersection of wireless communication, information &amp; estimation theory, signal processing, and RF system design — unified by a single question: <strong>how do we build wireless systems with dual sensing and communication capability, and what is the fundamental cost of having both?</strong>
+        I'm a PhD student in Electrical Engineering at the <strong>University of Illinois Chicago</strong>, working with <a href="https://besmasmida.github.io/BesmaSmida/index.html" target="_blank">Dr. Besma Smida</a>. My work spans wireless communication, information &amp; estimation theory, and signal processing, around one question: <strong>how do we build wireless systems that sense and communicate at once, and what is the cost of having both?</strong> At <strong>Rice University</strong>, I am a Visiting Student Researcher in Summer 2026, working on multi-band radar fusion for wireless sensing.
       </p>
-      <div class="contact-note">
-        <div class="contact-note-ico">✦</div>
-        <p>I'm always happy to discuss research ideas, collaborations, or opportunities.</p>
-        <a href="#" class="contact-note-btn eml" data-u="asams3" data-d="uic.edu">Reach out ↗</a>
-      </div>
 
       <!-- RESEARCH MAP -->
       <section class="rmap rev">
@@ -1980,10 +1988,11 @@
         <h3>Latest News</h3>
       </div>
       <div class="news-list">
+        <div class="ni-row"><span class="ni-date">Jul 06, 2026</span><span class="ncap nc-ph">PHD</span><div class="ni-text">Joining <strong>Rice University</strong> as a Visiting Student Researcher to work on multiband radar sensing fusion.</div></div>
         <div class="ni-row"><span class="ni-date">Jun 10, 2026</span><span class="ncap nc-p">PUBLICATION</span><div class="ni-text">Submitted a paper on ISAC to <strong>IEEE Transactions on Wireless Communications</strong>.</div></div>
         <div class="ni-row"><span class="ni-date">May 10, 2026</span><span class="ncap nc-p">PUBLICATION</span><div class="ni-text">Submitted a paper on ISAC to <strong>IEEE Information Theory Workshop 2026</strong>.</div></div>
-        <div class="ni-row"><span class="ni-date">May 07, 2026</span><span class="ncap nc-a">AWARD</span><div class="ni-text">Received the <strong>CoE Graduate Student Award for Teaching Assistant Excellence</strong> from the College of Engineering at UIC.</div></div>
         <div class="ni-row"><span class="ni-date">May 08, 2026</span><span class="ncap nc-s">SERVICE</span><div class="ni-text">Selected to attend a luncheon with members of the <strong>College of Engineering Advisory Board</strong> at UIC.</div></div>
+        <div class="ni-row"><span class="ni-date">May 07, 2026</span><span class="ncap nc-a">AWARD</span><div class="ni-text">Received the <strong>CoE Graduate Student Award for Teaching Assistant Excellence</strong> from the College of Engineering at UIC.</div></div>
         <div class="ni-row"><span class="ni-date">Apr 13, 2026</span><span class="ncap nc-a">AWARD</span><div class="ni-text">Received the <strong>Chancellor's Student Service Award</strong> from the University of Illinois Chicago — university-wide recognition for outstanding leadership, campus involvement, and community service.</div></div>
         <div class="ni-row"><span class="ni-date">Jan 10, 2026</span><span class="ncap nc-t">TEACHING</span><div class="ni-text">TAing ECE 311: Communication Engineering (Instructor: Prof. Natasha Devroye).</div></div>
         <div class="ni-row"><span class="ni-date">Oct 27, 2025</span><span class="ncap nc-c">CONFERENCE</span><div class="ni-text">Presented paper on Reliability of Estimation Bounds in Low SNR regime at <strong>IEEE GLOBECOM</strong>, Taipei, Taiwan.</div></div>
@@ -2140,7 +2149,7 @@
           <span class="pidx">[*]</span>
           <div>
             <div class="ptitle">Sensing-Assisted Broadcast ISAC without Instantaneous CSIT</div>
-            <div class="pvenue"><span class="author-me">A. Sams</span>, B. Smida, N. Devroye, D. Tuninetti, G. Taricco — IEEE Information Theory Workshop 2026</div>
+            <div class="pvenue"><span class="author-me">A. Sams</span>, B. Smida, N. Devroye, D. Tuninetti, G. Taricco</div>
           </div>
           <div style="display:flex;flex-direction:column;align-items:flex-end;gap:3px">
             <span class="pbadge pb-sub">SUBMITTED</span>
@@ -2324,6 +2333,16 @@
         <div class="edu-dept">Dept. of Electrical and Computer Engineering</div>
         <div class="edu-period">Fall 2023 — Ongoing</div>
         <div class="edu-note">Research advisor: Dr. Besma Smida<br>Qualifying exams passed: Communication Systems, May 28–30, 2024<br>Active member of IEEE ComSoc Student Branch Chapter and Bangladeshi Students Association.</div>
+      </div>
+    </div>
+    <div class="edu-card rev edu-sub" style="transition-delay:0.05s">
+      <div class="edu-ico"><img src="images/Rice_logo.png" alt="Rice University" style="width:44px;height:44px;object-fit:contain;"></div>
+      <div>
+        <div class="edu-uni">Rice University</div>
+        <div class="edu-deg">Visiting Student Researcher</div>
+        <div class="edu-dept">Dept. of Electrical and Computer Engineering</div>
+        <div class="edu-period">Summer 2026</div>
+        <div class="edu-note">Host: Dr. Nakul Garg</div>
       </div>
     </div>
     <div class="edu-card rev" style="transition-delay:0.1s">

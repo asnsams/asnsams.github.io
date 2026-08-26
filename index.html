@@ -260,8 +260,12 @@
   main { margin-left: var(--sidebar-w); flex: 1; min-height: 100vh; background-color: var(--bg); }
 
   /* PAGES */
-  .page { display: none; min-height: 100vh; animation: pageIn 0.38s ease; }
+  /* PAGES — single continuous scroll */
+  .page { display: block; scroll-margin-top: 0; }
+  .page + .page { border-top: 1px solid var(--border); }
   .page.active { display: block; }
+  html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
   @keyframes pageIn {
     from { opacity: 0; transform: translateY(10px); }
     to { opacity: 1; transform: translateY(0); }
@@ -421,17 +425,27 @@
     0%,100% { opacity:1; transform:scale(1); }
     50% { opacity:0.4; transform:scale(0.7); }
   }
-  .news-list { max-height: 460px; overflow-y: auto; padding-right: 6px; }
+  .news-list { max-height: 460px; overflow-y: auto; padding-right: 6px; container-type: inline-size; }
   .news-list::-webkit-scrollbar { width: 3px; }
   .news-list::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
 
   .ni-row {
     display: grid;
-    grid-template-columns: 96px auto 1fr;
+    grid-template-columns: 92px max-content minmax(0, 1fr);
     gap: 10px;
     padding: 10px 0;
     border-bottom: 1px solid var(--border);
     align-items: start;
+  }
+  .ni-date { grid-area: d; }
+  .ncap { grid-area: c; justify-self: start; }
+  .ni-text { grid-area: t; }
+  .ni-row { grid-template-areas: "d c t"; }
+  @container (max-width: 520px) {
+    .ni-row { grid-template-columns: max-content minmax(0, 1fr); grid-template-areas: "d c" "t t"; row-gap: 5px; }
+  }
+  @container (max-width: 240px) {
+    .ni-row { grid-template-columns: minmax(0, 1fr); grid-template-areas: "d" "c" "t"; }
   }
   .ni-row:last-child { border-bottom: none; }
   .ni-date {
@@ -1078,8 +1092,7 @@
     .page-hero, .content { padding: 28px 22px; }
     .home-grid { grid-template-columns: 1fr; padding: 28px 22px; }
     .proj-head { grid-template-columns: 1fr; }
-    .ni-row { grid-template-columns: auto auto 1fr; }
-    .ni-date { display: none; }
+    .ni-row { grid-template-columns: max-content minmax(0, 1fr); grid-template-areas: "d c" "t t"; }
   }
 
   /* =================================================================
@@ -2236,7 +2249,7 @@
       </div>
       <div class="proj-body">
         <p class="proj-desc">
-          Classical subspace methods like MUSIC give robust direction-of-arrival estimates but break down at low SNR and with few snapshots — exactly the regime ISAC systems must operate in. Rather than throwing data-hungry learning at the problem, this project develops hybrid schemes whose decisions are grounded in the geometric structure of the signal subspace rather than learned purely from data. The aim is sample-efficient estimators that recover performance from very limited, noisy measurements while preserving the interpretability of classical methods.
+          Classical subspace methods like MUSIC give robust direction-of-arrival estimates but break down at low SNR and with few snapshots. Rather than throwing data-hungry learning at the problem like recent literature, this project develops hybrid schemes whose decisions are grounded in the geometric structure of the signal subspace rather than learned purely from data. The aim is sample-efficient estimators that recover performance from very limited data while preserving the interpretability of classical methods.
         </p>
         <div class="papers-lbl">Papers</div>
         <div class="prow">
@@ -2244,6 +2257,30 @@
           <div>
             <div class="ptitle">Sample-Efficient Direction-of-Arrival Estimation</div>
             <div class="pvenue"><span class="author-me">A. Sams</span>, M. Talha, B. Smida</div>
+          </div>
+          <span class="pbadge pb-wip">IN PROGRESS</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="proj-block rev" style="transition-delay:0.3s">
+      <div class="proj-head">
+        <span class="pnum" style="background:#7a5cc9">PROJECT 04</span>
+        <div>
+          <h3>Multiband Radar Sensing Fusion</h3>
+          <div class="proj-collab">with Dr. Nakul Garg (Rice University)</div>
+        </div>
+      </div>
+      <div class="proj-body">
+        <p class="proj-desc">
+          A single radar band forces a compromise: 77 GHz buys fine range and angular resolution but degrades through occlusion and diffraction, while 24 GHz penetrates and bends around obstacles at the cost of resolution. This project goal is to fuse the two — a 77 GHz TI radar and a 24 GHz tinyRad into a single coherent sensing pipeline, using ultra-wideband coherent processing to treat the separated bands as one synthetic aperture in frequency.
+        </p>
+        <div class="papers-lbl">Papers</div>
+        <div class="prow">
+          <span class="pidx">[*]</span>
+          <div>
+            <div class="ptitle">Multiband Radar Sensing Fusion</div>
+            <div class="pvenue"><span class="author-me">A. Sams</span>, M. Talha, N. Garg</div>
           </div>
           <span class="pbadge pb-wip">IN PROGRESS</span>
         </div>
@@ -2655,23 +2692,63 @@
 <script>
 
 function show(page) {
-  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-  document.querySelectorAll('nav a').forEach(a => a.classList.remove('active'));
-  document.getElementById(page).classList.add('active');
-  document.getElementById('nav-' + page).classList.add('active');
-  window.scrollTo({ top: 0, behavior: 'smooth' });
+  const el = document.getElementById(page);
   document.getElementById('sidebar').classList.remove('open');
-  setTimeout(triggerReveal, 40);
+  if (!el) return false;
+  if (page === 'home') window.scrollTo({ top: 0, behavior: 'smooth' });
+  else el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  history.replaceState(null, '', '#' + page);
   return false;
 }
 
+/* Reveal each .rev as it enters the viewport */
+const revObserver = new IntersectionObserver((entries) => {
+  entries.forEach((e) => {
+    if (!e.isIntersecting) return;
+    const el = e.target;
+    const sibs = Array.from(el.parentElement ? el.parentElement.children : []).filter(n => n.classList && n.classList.contains('rev'));
+    const i = Math.max(0, sibs.indexOf(el));
+    setTimeout(() => el.classList.add('in'), Math.min(i, 6) * 70);
+    revObserver.unobserve(el);
+  });
+}, { rootMargin: '0px 0px -12% 0px', threshold: 0.08 });
+
 function triggerReveal() {
-  const active = document.querySelector('.page.active');
-  if (!active) return;
-  active.querySelectorAll('.rev').forEach((el, i) => {
-    setTimeout(() => el.classList.add('in'), i * 70);
+  document.querySelectorAll('.rev').forEach(el => {
+    const r = el.getBoundingClientRect();
+    if (r.top < window.innerHeight * 0.92) el.classList.add('in');
+    else revObserver.observe(el);
   });
 }
+
+/* Scroll-spy: highlight the nav link for the section in view */
+(function () {
+  const sections = Array.from(document.querySelectorAll('main > .page'));
+  const links = new Map(sections.map(s => [s.id, document.getElementById('nav-' + s.id)]));
+  function sync() {
+    const probe = window.innerHeight * 0.3;
+    let current = sections[0];
+    for (const s of sections) {
+      const r = s.getBoundingClientRect();
+      if (r.top <= probe) current = s;
+    }
+    if (window.innerHeight + window.scrollY >= document.body.scrollHeight - 4) current = sections[sections.length - 1];
+    links.forEach((a) => a && a.classList.remove('active'));
+    const active = links.get(current.id);
+    if (active) active.classList.add('active');
+  }
+  let raf = null;
+  window.addEventListener('scroll', () => {
+    if (raf) return;
+    raf = requestAnimationFrame(() => { raf = null; sync(); });
+  }, { passive: true });
+  window.addEventListener('resize', sync, { passive: true });
+  sync();
+  if (location.hash) {
+    const t = document.getElementById(location.hash.slice(1));
+    if (t) setTimeout(() => t.scrollIntoView({ block: 'start' }), 60);
+  }
+})();
 
 // Initial
 triggerReveal();

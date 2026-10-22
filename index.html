@@ -112,7 +112,9 @@
   .hero-name-v2 .ln-accent{font-weight:800;color:var(--ink)}
   .hero-title-line{order:2;margin-top:14px;font-family:'DM Sans',sans-serif;font-size:.95rem;font-weight:600;letter-spacing:.16em;white-space:nowrap;text-transform:uppercase;color:var(--slate-txt)}
   .hero-roles{order:3;margin-top:16px;display:flex;flex-direction:column;gap:9px;align-items:center;max-width:620px}
-  .hero-role{text-wrap:balance;font-family:'DM Sans',sans-serif;font-size:.84rem;line-height:1.6;color:var(--muted)}
+  .hero-role{text-wrap:balance;text-align:center;flex-shrink:0;height:auto;font-family:'DM Sans',sans-serif;font-size:.84rem;line-height:1.6;color:var(--muted)}
+  .hero-role .hr-at{display:inline;height:auto}
+  .hero-roles{height:auto !important}
   .hero-role .hr-uni{font-weight:700;color:var(--ink)}
   .hero-role-topic{margin-top:6px;font-size:.66rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--blue)}
   .hero-tags-v2{order:7;display:flex;flex-wrap:wrap;justify-content:center;gap:5px;margin-top:26px;padding-top:22px;border-top:1px solid var(--rule);width:100%;max-width:900px}
@@ -524,7 +526,7 @@
         <div class="opp-icon">🔍</div>
         <div class="opp-text">
           <div class="opp-eyebrow"><span class="opp-eyebrow-dot"></span>Open to opportunities</div>
-          <div class="opp-body">I am actively seeking <strong>internship positions for Spring 2027 or Summer 2027</strong> in wireless communication, sensing, ML for wireless, and 6G research.</div>
+          <div class="opp-body">I am actively seeking <strong>internship positions for Spring, Summer, or Fall 2027</strong> in wireless communication, sensing, ML for wireless, and 6G research.</div>
         </div>
         <div class="opp-cta">✉ Get in touch →</div>
       </a>
@@ -596,9 +598,9 @@
         <h3>Latest News</h3>
       </div>
       <div class="news-list">
+        <div class="ni-row"><span class="ni-date">Oct 2026</span><span class="ncap nc-p">PUBLICATION</span><div class="ni-text">Submitted two papers to <strong>IEEE ICC 2027</strong>.</div></div>
         <div class="ni-row"><span class="ni-date">Jul 06, 2026</span><span class="ncap nc-ph">PHD</span><div class="ni-text">Joining <strong>Rice University</strong> as a Visiting Student Researcher to work on multiband radar sensing fusion.</div></div>
         <div class="ni-row"><span class="ni-date">Jun 10, 2026</span><span class="ncap nc-p">PUBLICATION</span><div class="ni-text">Submitted a paper on ISAC to <strong>IEEE Transactions on Wireless Communications</strong>.</div></div>
-        <div class="ni-row"><span class="ni-date">May 10, 2026</span><span class="ncap nc-p">PUBLICATION</span><div class="ni-text">Submitted a paper on ISAC to <strong>IEEE Information Theory Workshop 2026</strong>.</div></div>
         <div class="ni-row"><span class="ni-date">May 08, 2026</span><span class="ncap nc-s">SERVICE</span><div class="ni-text">Selected to attend a luncheon with members of the <strong>College of Engineering Advisory Board</strong> at UIC.</div></div>
         <div class="ni-row"><span class="ni-date">May 07, 2026</span><span class="ncap nc-a">AWARD</span><div class="ni-text">Received the <strong>CoE Graduate Student Award for Teaching Assistant Excellence</strong> from the College of Engineering at UIC.</div></div>
         <div class="ni-row"><span class="ni-date">Apr 13, 2026</span><span class="ncap nc-a">AWARD</span><div class="ni-text">Received the <strong>Chancellor's Student Service Award</strong> from the University of Illinois Chicago, a university-wide recognition for outstanding leadership, campus involvement, and community service.</div></div>
@@ -711,15 +713,25 @@
       <div class="proj-head">
         <span class="pnum" style="background:var(--accent2)">PROJECT 02</span>
         <div>
-          <h3>FR3 Multi-Band System and Reconfigurable Antenna</h3>
+          <h3>Multi-Band System and Reconfigurable Antenna</h3>
           <div class="proj-collab">with <a href="https://besmasmida.github.io/BesmaSmida/index.html" target="_blank" style="color:var(--accent);text-decoration:none;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">Dr. Besma Smida</a> (University of Illinois Chicago) · <a href="https://ashu.rice.edu/" target="_blank" style="color:var(--accent);text-decoration:none;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">Dr. Ashutosh Sabharwal</a> (Rice University) · <a href="https://scholar.google.com/citations?user=I-e6nvMAAAAJ&hl=en&oi=ao" target="_blank" style="color:var(--accent);text-decoration:none;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">Dr. Risto Wichman</a> &amp; <a href="https://www.aalto.fi/en/people/pasi-yla-oijala" target="_blank" style="color:var(--accent);text-decoration:none;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">Dr. Pasi Ylä-Oijala</a> (Aalto University)</div>
         </div>
       </div>
       <div class="proj-body">
         <p class="proj-desc">
-          The FR3 band (7–24 GHz) is a promising candidate for 6G, offering wide bandwidth; but this very breadth introduces a problem: fragmented band, propagation loss, antenna aperture, and hardware behavior vary significantly across the band, making conventional single-band MIMO architectures ineffective. Sensing and communication signals must also coexist with incumbent services already occupying parts of this spectrum, further constraining system design. This project develops a framework that exploits the fragmented, frequency-partitioned structure of FR3 rather than fighting it, using reconfigurable antenna architectures to adaptively reshape beam patterns and enable efficient multi-band operation within a single hardware platform.
+          Next-generation wireless systems increasingly operate across multiple, widely separated frequency bands — from sub-6 GHz through FR3 (7–24 GHz) and beyond. Across these bands, propagation loss, antenna aperture, and hardware behavior vary significantly, and the available spectrum is fragmented and often shared with incumbent services, making conventional single-band MIMO architectures ineffective. This project develops a generalized multi-band framework that exploits this frequency-partitioned structure rather than fighting it, using reconfigurable antenna architectures to adaptively reshape beam patterns and enable efficient joint sensing and communication across bands within a single hardware platform.
         </p>
         <div class="papers-lbl">Papers</div>
+        <div class="prow">
+          <span class="pidx">[*]</span>
+          <div>
+            <div class="ptitle">Dual-band Underlay Integrated Sensing and Communication</div>
+            <div class="pvenue"><span class="author-me">A. Sams</span>, B. Smida</div>
+          </div>
+          <div class="prow-actions">
+            <span class="pbadge pb-sub">SUBMITTED - LETTER</span>
+          </div>
+        </div>
         <div class="prow">
           <span class="pidx">[*]</span>
           <div>
@@ -766,7 +778,7 @@
             <div class="ptitle">Sample-Efficient Direction-of-Arrival Estimation</div>
             <div class="pvenue"><span class="author-me">A. Sams</span>, M. Talha, B. Smida</div>
           </div>
-          <span class="pbadge pb-wip">IN PROGRESS</span>
+          <span class="pbadge pb-sub">SUBMITTED</span>
         </div>
       </div>
     </div>
@@ -788,7 +800,6 @@
           <span class="pidx">[*]</span>
           <div>
             <div class="ptitle">Multiband Radar Sensing Fusion</div>
-            <div class="pvenue"><span class="author-me">A. Sams</span>, M. Talha, N. Garg</div>
           </div>
           <span class="pbadge pb-wip">IN PROGRESS</span>
         </div>
@@ -883,7 +894,6 @@
         <div class="edu-deg">Visiting Student Researcher</div>
         <div class="edu-dept">Dept. of Electrical and Computer Engineering</div>
         <div class="edu-period">Summer 2026</div>
-        <div class="edu-note">Host: <a href="https://nakulg.com/" target="_blank">Dr. Nakul Garg</a></div>
       </div>
     </div>
     <div class="edu-card rev" style="transition-delay:0.1s">
@@ -1007,7 +1017,7 @@
           <div class="tr-role">Graduate Teaching Assistant · ECE 311: Communication Engineering</div>
           <div class="tr-org">University of Illinois Chicago · Instructors: Dr. Besma Smida / Dr. Natasha Devroye</div>
         </div>
-        <div class="tr-period">Spring 26, Fall 25,<br>Spring 25, Fall 24, Fall 23</div>
+        <div class="tr-period">Fall 26, Spring 26, Fall 25,<br>Spring 25, Fall 24, Fall 23</div>
       </div>
       <div class="teach-row">
         <img src="images/BRAC_logo.png" alt="BRAC University" class="teach-logo">
@@ -1188,7 +1198,7 @@
   </div>
 </div>
 
-<div class="site-foot">© Ataher Sams &nbsp;|&nbsp; Last updated August 2026</div>
+<div class="site-foot">© Ataher Sams &nbsp;|&nbsp; Last updated October 2026</div>
 </main>
 
 
